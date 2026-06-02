@@ -19,13 +19,16 @@ import IntegrationsConstellation from "@/components/Homepage/IntegrationsConstel
 import StructuredData from "@/components/StructuredData";
 import { generateOrganizationSchema } from "@/lib/seo-metadata";
 import { generateMetadata as createMetadata } from "@/lib/seo-metadata";
+import { SITE } from "@/lib/site";
 
 export const metadata = createMetadata({
   path: "/",
   schemaType: "Organization",
 });
 
-const ACCENT = "#5EC6EA";
+const ACCENT = SITE.colors.accent;
+const BRAND_NAME = SITE.name;
+const REGION_LABEL = SITE.contact.regionLabel;
 
 export default function Page() {
   const heroImages = [
@@ -42,10 +45,10 @@ export default function Page() {
         <HomeHero
           images={heroImages}
           accent={ACCENT}
-          title="BDI Corporate helps businesses connect systems, centralize reporting, and automate operations."
-          accentWords={["BDI Corporate"]}
-          summary="Through BDI Systems, we help startups and SMEs run operations, connect business tools, support marketing execution, build digital storefronts, and work with AI in plain language through one structured environment."
-          buzz={["Lebanon and UAE delivery", "connected business systems", "practical automation"]}
+          title={`${BRAND_NAME} helps businesses connect systems, centralize reporting, and automate operations.`}
+          accentWords={[BRAND_NAME]}
+          summary={`${SITE.tagline}. We help startups and SMEs run operations, connect business tools, support marketing execution, build digital storefronts, and work with AI in plain language through one structured environment.`}
+          buzz={[`${REGION_LABEL} delivery`, "connected business systems", "practical automation"]}
           ctaPrimary={{ href: "/contact", label: "Book a discovery call" }}
           ctaSecondary={{ href: "/services", label: "View services" }}
           wordIntervalMs={2500}
@@ -57,7 +60,7 @@ export default function Page() {
         <ServicesSnapshot />
         <IntegrationsConstellation />
         <HowItWorks />
-        <WhyBDI />
+        <WhyBrand />
         <Comparison />
         <HomeFinalCTA />
       </main>
@@ -69,7 +72,7 @@ function StatBand() {
   const stats = [
     { value: "5", label: "Business models — membership, commerce, services, rental & billing" },
     { value: "20+", label: "Tools & integrations connected in one workflow" },
-    { value: "2", label: "Markets delivered end-to-end — Lebanon & UAE" },
+    { value: "2", label: `Markets delivered end-to-end — ${REGION_LABEL}` },
     { value: "1", label: "Platform replacing a stack of disconnected apps" },
   ];
   return (
@@ -174,7 +177,7 @@ function Comparison() {
         </div>
         <div className="mt-12 grid gap-6 md:grid-cols-2">
           <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-6 md:p-8">
-            <h3 className="text-lg font-semibold text-white/60">Without BDI</h3>
+            <h3 className="text-lg font-semibold text-white/60">Without {SITE.brand}</h3>
             <ul className="mt-5 space-y-4">
               {rows.map((r) => (
                 <li key={r.without} className="flex items-start gap-3 text-sm">
@@ -185,7 +188,7 @@ function Comparison() {
             </ul>
           </div>
           <div className="rounded-2xl border border-[#5EC6EA]/30 bg-gradient-to-br from-[#5EC6EA]/[0.10] to-[#8B7CF6]/[0.08] p-6 md:p-8 shadow-[0_0_40px_rgba(94,198,234,0.10)]">
-            <h3 className="text-lg font-semibold text-[#5EC6EA]">With BDI</h3>
+            <h3 className="text-lg font-semibold text-[#5EC6EA]">With {SITE.brand}</h3>
             <ul className="mt-5 space-y-4">
               {rows.map((r) => (
                 <li key={r.with} className="flex items-start gap-3 text-sm">
@@ -203,7 +206,7 @@ function Comparison() {
 
 function TrustStrip() {
   const items = [
-    { label: "Lebanon & UAE" },
+    { label: REGION_LABEL },
     { label: "Vendor-agnostic" },
     { label: "Fixed-scope delivery" },
     { label: "No vendor lock-in" },
@@ -305,7 +308,7 @@ function ServicesSnapshot() {
   );
 }
 
-function WhyBDI() {
+function WhyBrand() {
   const points = [
     { title: "Manage from one layer", desc: "Bring operations, reporting, and execution into a system that is easier to run." },
     { title: "Integrate key services", desc: "Connect tools such as GitHub, Vercel, HubSpot, Zoho, and other business platforms." },
@@ -322,13 +325,13 @@ function WhyBDI() {
               className="mb-3 rounded-full border text-foreground"
               style={{ background: `${ACCENT}1A`, borderColor: `${ACCENT}33` }}
             >
-              Why BDI Corporate
+              Why {BRAND_NAME}
             </Badge>
             <h2 className="text-3xl font-bold tracking-tight md:text-4xl">
               Practical delivery. <span style={{ color: ACCENT }}>Clear outcomes.</span>
             </h2>
             <p className="mt-4 max-w-[58ch] text-muted-foreground">
-              We help companies across Lebanon and the UAE improve how systems, data, teams, and digital channels work
+              We help companies across {REGION_LABEL} improve how systems, data, teams, and digital channels work
               together. The result is stronger visibility, less manual friction, and a more usable operating structure
               for startups and SMEs.
             </p>

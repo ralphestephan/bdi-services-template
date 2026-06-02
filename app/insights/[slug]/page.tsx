@@ -11,7 +11,7 @@ import GlassyImplementationCTA from "@/components/GlassyImplementationCTA";
 import { CalendarDays, Clock3, Tag as TagIcon, CheckCircle2, ArrowRight } from "lucide-react";
 
 /* Brand accent */
-const ACCENT = "#5EC6EA";
+const ACCENT = SITE.colors.accent;
 
 /** Props shape that satisfies Next's constraint */
 type Props = {
@@ -29,7 +29,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!post) return { title: "Insight" };
 
   return {
-    title: `${post.title} | BDI Insights`,
+    title: `${post.title} | ${SITE.name} Insights`,
     description: post.excerpt,
     alternates: { canonical: `/insights/${post.slug}` },
     openGraph: {
@@ -38,7 +38,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       url: `${SITE.baseUrl}/insights/${post.slug}`,
       images: [{ url: `${SITE.baseUrl}${post.cover}` }],
     },
-    twitter: { card: "summary_large_image", site: "@bdicorporate" },
+    twitter: { card: "summary_large_image", site: SITE.socials.twitter },
   };
 }
 

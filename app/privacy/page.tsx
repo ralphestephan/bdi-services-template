@@ -2,6 +2,7 @@
 "use client";
 
 import * as React from "react";
+import { useSiteBrand } from "@/lib/tenant-brand";
 
 /** ── tiny client TOC with scroll-spy ───────────────────────────────────── */
 function TOC({ items }: { items: { id: string; label: string }[] }) {
@@ -52,6 +53,19 @@ function TOC({ items }: { items: { id: string; label: string }[] }) {
 /** ─────────────────────────────────────────────────────────────────────── */
 
 export default function PrivacyPage() {
+  const brand = useSiteBrand();
+  const brandName = brand.name;
+  const supportEmail = brand.supportEmail;
+  const legalEmail = brand.legalEmail;
+  const offices = brand.offices && brand.offices.length > 0 ? brand.offices : ["Beirut, Lebanon"];
+  const officeLine = offices.join(" — ");
+  const siteHost = (() => {
+    try {
+      return new URL(brand.siteUrl).host;
+    } catch {
+      return brand.siteUrl;
+    }
+  })();
   const updated = "September 30, 2025";
 
   const toc = [
@@ -79,13 +93,13 @@ export default function PrivacyPage() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "WebPage",
-            "name": "Privacy Policy - BDI Corporate",
-            "description": "Privacy policy for BDI Corporate's data handling, GDPR compliance, and user rights protection.",
-            "url": "https://bdicorporate.com/privacy",
+            "name": `Privacy Policy - ${brandName}`,
+            "description": `Privacy policy for ${brandName}'s data handling, GDPR compliance, and user rights protection.`,
+            "url": `${brand.siteUrl}/privacy`,
             "isPartOf": {
               "@type": "WebSite",
-              "name": "BDI Corporate",
-              "url": "https://bdicorporate.com"
+              "name": brandName,
+              "url": brand.siteUrl
             },
             "lastReviewed": updated,
             "audience": {
@@ -115,7 +129,7 @@ export default function PrivacyPage() {
             </span>
           </h1>
           <p className="mt-2 text-zinc-700 max-w-2xl mx-auto">
-            How BDI Corporate (“we”, “us”, “our”) collects, uses, and protects your information for BI,
+            How {brandName} (“we”, “us”, “our”) collects, uses, and protects your information for BI,
             integrations, and automations.
           </p>
           <div className="mt-2 text-xs text-zinc-500">Last updated: {updated}</div>
@@ -137,7 +151,7 @@ export default function PrivacyPage() {
                 body: (
                   <>
                     <p>
-                      This Policy applies to <strong>bdicorporate.com</strong>, client portals, and our project
+                      This Policy applies to <strong>{siteHost}</strong>, client portals, and our project
                       delivery. By using our site or services, you agree to this Policy. We do <strong>not sell</strong>{" "}
                       personal data. For client projects we typically act as a processor under a DPA.
                     </p>
@@ -206,7 +220,7 @@ export default function PrivacyPage() {
                 title: "International Transfers",
                 body: (
                   <p>
-                    Data may be processed in Lebanon, the UAE, the EU and other locations where providers operate.
+                    Data may be processed in {brand.regionLabel}, the EU and other locations where providers operate.
                     Where required, we use appropriate safeguards (e.g., SCCs).
                   </p>
                 ),
@@ -242,7 +256,7 @@ export default function PrivacyPage() {
                       <li>Manage marketing preferences via email footers or by contacting us.</li>
                     </ul>
                     <p className="mt-3">
-                      Contact: <a className="text-[#1e90ff] font-semibold" href="mailto:joe@bdicorporate.com">joe@bdicorporate.com</a>
+                      Contact: <a className="text-[#1e90ff] font-semibold" href={`mailto:${legalEmail}`}>{legalEmail}</a>
                     </p>
                   </>
                 ),
@@ -283,10 +297,10 @@ export default function PrivacyPage() {
                 body: (
                   <p>
                     Email:{" "}
-                    <a className="text-[#1e90ff] font-semibold" href="mailto:joe@bdicorporate.com">
-                      joe@bdicorporate.com
+                    <a className="text-[#1e90ff] font-semibold" href={`mailto:${legalEmail}`}>
+                      {legalEmail}
                     </a>{" "}
-                    • Beirut, Lebanon — Dubai, UAE
+                    • {officeLine}
                   </p>
                 ),
               },

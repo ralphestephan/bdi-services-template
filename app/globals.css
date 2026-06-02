@@ -43,10 +43,11 @@
   --radius-xl: calc(var(--radius) + 4px);
 }
 
-/* BDI brand + tryhala-style polish. Identity stays sky-blue (#5EC6EA family):
-   --primary is a deeper, accessible shade of it for CTAs/links; the light
-   #5EC6EA reads as the lighter --accent/highlight. Neutrals shifted to a cool
-   charcoal/off-white for the clean SaaS feel; radius bumped to 12px. */
+/* Brand + tryhala-style polish. Default identity stays sky-blue (#5EC6EA family);
+   override at deploy time via NEXT_PUBLIC_BRAND_PRIMARY_COLOR /
+   NEXT_PUBLIC_BRAND_ACCENT_COLOR (consumed by lib/site.ts). The CSS variables
+   below are still hardcoded — operators forking the template can either edit
+   them here or generate a brand-specific layer on top in app/layout.tsx. */
 :root {
   --radius: 0.75rem;
   --background: oklch(1 0 0);

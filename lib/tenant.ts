@@ -3,10 +3,15 @@
 // Every form-submission route on this website (contact / newsletter / order /
 // booking) accepts an optional `organizationId` in the body. When present, we
 // look up the tenant's brand config and use it for confirmation + admin
-// emails. When absent, we fall back to BDI Corporate's own brand.
+// emails. When absent, we fall back to the template's own SITE brand
+// (env-driven via `lib/site.ts`).
 //
 // CORS: each tenant carries an `allowedOrigins` allowlist. Generated sites
-// posting cross-origin must match. Same-origin (BDI) requests bypass the check.
+// posting cross-origin must match. Same-origin (template) requests bypass.
+//
+// NOTE: the `BDI_*` env var names below (BDI_ORGANIZATION_ID, BDI_SUBMISSIONS_INGEST_TOKEN)
+// are kept for back-compat with deployed templates. They are *not* brand-
+// specific; rename via Vercel env var aliases if a tenant prefers.
 import { prisma } from "@/lib/db";
 import { BDI_BRAND, type Brand } from "@/lib/notifications";
 
@@ -18,26 +23,26 @@ export interface ResolvedTenant {
   allowedOrigins: string[];
 }
 
-const BDI_FROM = process.env.RESEND_FROM || `${BDI_BRAND.name} <${BDI_BRAND.supportEmail}>`;
-const BDI_ADMIN = process.env.ADMIN_EMAIL || BDI_BRAND.supportEmail;
+const DEFAULT_FROM = process.env.RESEND_FROM || `${BDI_BRAND.name} <${BDI_BRAND.supportEmail}>`;
+const DEFAULT_ADMIN = process.env.ADMIN_EMAIL || BDI_BRAND.supportEmail;
 
-const BDI_DEFAULT: ResolvedTenant = {
+const SITE_DEFAULT: ResolvedTenant = {
   organizationId: process.env.BDI_ORGANIZATION_ID || null,
   brand: BDI_BRAND,
-  adminEmail: BDI_ADMIN,
-  fromAddress: BDI_FROM,
+  adminEmail: DEFAULT_ADMIN,
+  fromAddress: DEFAULT_FROM,
   allowedOrigins: ["*"],
 };
 
 export async function resolveTenant(organizationId: string | null | undefined): Promise<ResolvedTenant> {
-  if (!organizationId) return BDI_DEFAULT;
-  // BDI's own org id resolves to defaults without a DB hit.
+  if (!organizationId) return SITE_DEFAULT;
+  // The host site's own org id resolves to defaults without a DB hit.
   if (process.env.BDI_ORGANIZATION_ID && organizationId === process.env.BDI_ORGANIZATION_ID) {
-    return BDI_DEFAULT;
+    return SITE_DEFAULT;
   }
   try {
     const t = await prisma.tenant.findUnique({ where: { organizationId } });
-    if (!t) return BDI_DEFAULT;
+    if (!t) return SITE_DEFAULT;
     const brand: Brand = {
       name: t.name,
       siteUrl: t.siteUrl,
@@ -55,8 +60,8 @@ export async function resolveTenant(organizationId: string | null | undefined): 
       allowedOrigins: t.allowedOrigins?.length ? t.allowedOrigins : ["*"],
     };
   } catch (err) {
-    console.error("resolveTenant: lookup failed, using BDI defaults:", err);
-    return BDI_DEFAULT;
+    console.error("resolveTenant: lookup failed, using SITE defaults:", err);
+    return SITE_DEFAULT;
   }
 }
 

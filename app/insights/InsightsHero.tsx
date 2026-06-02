@@ -4,10 +4,12 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-
-const ACCENT = "#5EC6EA";
+import { useSiteBrand } from "@/lib/tenant-brand";
 
 export default function InsightsHero() {
+  const brand = useSiteBrand();
+  const ACCENT = brand.accentColor || "#5EC6EA";
+  const brandName = brand.name;
   const images = [
     { src: "/consult2.jpeg", alt: "Leaders discussing KPI strategy" },
     { src: "/business-planning.webp", alt: "Planning data contracts and KPIs" },
@@ -74,7 +76,7 @@ export default function InsightsHero() {
                   boxShadow: "0 10px 40px -20px rgba(0,0,0,.8)",
                 }}
               >
-                About BDI Corporate
+                About {brandName}
               </Link>
               <Button
                 asChild

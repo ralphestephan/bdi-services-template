@@ -16,12 +16,13 @@ import {
   Users,
   FileSpreadsheet,
 } from "lucide-react";
+import { useSiteBrand } from "@/lib/tenant-brand";
 
-// Original BDI take on the "works with your stack" orbital constellation:
-// a glowing central BDI node with the platform's real integrations orbiting it
-// on a slowly-rotating ring (icons counter-rotate to stay upright), faint
-// connecting lines + a hexagram for the premium SaaS feel. Dark feature
-// section on an otherwise light site, matching the brand sky-blue.
+// "Works with your stack" orbital constellation: glowing central brand node
+// with the platform's real integrations orbiting it on a slowly-rotating ring
+// (icons counter-rotate to stay upright), faint connecting lines + a
+// hexagram for the premium SaaS feel. Brand name + logo come from
+// `useSiteBrand()` so it re-skins per tenant.
 
 type Node = { label: string; Icon: typeof Mail };
 
@@ -52,6 +53,9 @@ function pos(i: number, total: number) {
 }
 
 export default function IntegrationsConstellation() {
+  const brand = useSiteBrand();
+  const brandShort = brand.name.split(" ")[0];
+  const centerLogo = brand.logoUrl || "/logo.png";
   const points = NODES.map((_, i) => pos(i, NODES.length));
   // Hexagram: connect every other node into two overlapping triangles.
   const triA = [0, 4, 8].map((i) => `${points[i].x},${points[i].y}`).join(" ");
@@ -80,7 +84,7 @@ export default function IntegrationsConstellation() {
               </span>
             </h2>
             <p className="mt-5 max-w-md text-base leading-relaxed text-white/65">
-              Connect BDI to your storefront, payments, calendar, messaging and
+              Connect {brandShort} to your storefront, payments, calendar, messaging and
               automation tools — all moving together in one intelligent
               workflow, with no rip-and-replace.
             </p>
@@ -140,7 +144,7 @@ export default function IntegrationsConstellation() {
               })}
             </motion.div>
 
-            {/* center BDI node (static, pulsing glow) */}
+            {/* center brand node (static, pulsing glow) */}
             <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
               <motion.div
                 animate={{ scale: [1, 1.06, 1], opacity: [0.9, 1, 0.9] }}
@@ -149,8 +153,8 @@ export default function IntegrationsConstellation() {
               >
                 <div className="absolute -inset-2 -z-10 rounded-3xl bg-[radial-gradient(circle,rgba(94,198,234,0.30),transparent_70%)] blur-md" />
                 <Image
-                  src="/logo.png"
-                  alt="BDI"
+                  src={centerLogo}
+                  alt={brandShort}
                   width={120}
                   height={185}
                   priority

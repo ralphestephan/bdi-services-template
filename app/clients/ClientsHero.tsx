@@ -5,8 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ShieldCheck, Globe2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-
-const ACCENT = "#5EC6EA";
+import { useSiteBrand } from "@/lib/tenant-brand";
 
 const images = [
   { src: "/consult.jpeg",      alt: "Systems integration consultation" },
@@ -16,6 +15,10 @@ const images = [
 ];
 
 export default function ClientsHero() {
+  const brand = useSiteBrand();
+  const ACCENT = brand.accentColor || "#5EC6EA";
+  const brandName = brand.name;
+  const regionLabel = brand.regionLabel;
   const [active, setActive] = useState(0);
 
   useEffect(() => {
@@ -65,7 +68,7 @@ export default function ClientsHero() {
             </h1>
 
             <p className="mt-4 max-w-[65ch] text-white/85 md:text-lg leading-relaxed">
-              BDI Corporate supports businesses across Lebanon and the UAE
+              {brandName} supports businesses across {regionLabel}
               with systems integration, BI reporting, and operational
               automation. Below is a selection of the companies we have worked
               with.
@@ -77,7 +80,7 @@ export default function ClientsHero() {
                 <svg width="18" height="18" viewBox="0 0 24 24" className="opacity-80">
                   <path fill="currentColor" d="M12 2l9 4v6c0 5-3.9 9.74-9 10c-5.1-.26-9-5-9-10V6z" />
                 </svg>
-                Lebanon &amp; UAE
+                {regionLabel}
               </span>
               <span className="inline-flex items-center gap-2">
                 <Globe2 className="h-4 w-4 opacity-80" /> Multi-sector

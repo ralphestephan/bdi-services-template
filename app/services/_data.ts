@@ -1,4 +1,18 @@
-export const ACCENT = "#5EC6EA";
+// TODO(brand-extract): This file contains hardcoded references to the BDI
+// Systems sub-product (e.g. "BDI Systems unified portal", "systems.bdicorporate.com").
+// These are product-marketing copy that operators cloning the template MUST
+// rewrite by hand for their own offering — they describe a specific commercial
+// product, not just a brand identity. The hero copy and structural sections
+// are kept intact so the template still renders meaningfully; replace the
+// strings with your own product narrative before going live.
+//
+// Brand-name-only references have been switched to `SITE.name` where it makes
+// sense; product-name references ("BDI Systems") are intentionally left as
+// literals with this TODO so they show up in audit greps.
+
+import { SITE } from "@/lib/site";
+
+export const ACCENT = SITE.colors.accent;
 
 /** Icon keys mapped in the page file */
 export type IconKey =

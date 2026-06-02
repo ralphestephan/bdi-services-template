@@ -5,8 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { CloudCog, Users } from 'lucide-react';
-
-const ACCENT = '#5EC6EA';
+import { useSiteBrand } from '@/lib/tenant-brand';
 
 const backgroundImages = [
   { src: '/clients.jpeg',  alt: 'Workshop on data strategy' },
@@ -29,6 +28,10 @@ function highlightWords(text: string, words: string[], color: string): ReactNode
 }
 
 export default function AboutHero() {
+  const brand = useSiteBrand();
+  const ACCENT = brand.accentColor || '#5EC6EA';
+  const brandName = brand.name;
+  const regionLabel = brand.regionLabel;
   const [active, setActive] = useState(0);
 
   useEffect(() => {
@@ -41,13 +44,13 @@ export default function AboutHero() {
   }, []);
 
   const title = highlightWords(
-    'BDI Corporate is a business technology partner for operational clarity',
-    ['BDI Corporate'],
+    `${brandName} is a business technology partner for operational clarity`,
+    [brandName],
     ACCENT
   );
 
   return (
-    <section aria-label="About BDI Corporate" className="relative overflow-hidden">
+    <section aria-label={`About ${brandName}`} className="relative overflow-hidden">
       {/* background carousel */}
       {backgroundImages.map((img, i) => (
         <Image
@@ -80,7 +83,7 @@ export default function AboutHero() {
             </h1>
 
             <p className="mt-3 max-w-[72ch] text-white/85 md:text-lg">
-              BDI Corporate combines business understanding with practical
+              {brandName} combines business understanding with practical
               implementation — helping organisations improve how systems, data,
               and operations work together.
             </p>
@@ -89,7 +92,7 @@ export default function AboutHero() {
             <div className="mt-4 flex flex-wrap items-center gap-4 text-sm text-white/85">
               <span className="inline-flex items-center gap-2">
                 <svg width="18" height="18" viewBox="0 0 24 24" className="opacity-80"><path fill="currentColor" d="M12 2l9 4v6c0 5-3.9 9.74-9 10c-5.1-.26-9-5-9-10V6z"/></svg>
-                Lebanon &amp; UAE
+                {regionLabel}
               </span>
               <span className="inline-flex items-center gap-2"><CloudCog className="h-4 w-4 opacity-80" /> Vendor-agnostic</span>
               <span className="inline-flex items-center gap-2"><Users className="h-4 w-4 opacity-80" /> Consultants &amp; engineers</span>

@@ -14,6 +14,7 @@ import {
 } from "lucide-react";
 
 import { ACCENT, SERVICES, ALL_SLUGS, type Service, type IconKey } from "../_data";
+import { SITE } from "@/lib/site";
 /* ---------- helpers ---------- */
 
 /* ---------- ICONS (typed) ---------- */
@@ -39,13 +40,13 @@ export async function generateMetadata(
   if (!s) return {};
 
   return {
-    title: `${s.title} | BDI Corporate`,
+    title: `${s.title} | ${SITE.name}`,
     description: s.summary,
     alternates: { canonical: `/services/${s.slug}` },
     openGraph: {
       title: s.title,
       description: s.summary,
-      url: `https://bdicorporate.com/services/${s.slug}`,
+      url: `${SITE.baseUrl}/services/${s.slug}`,
       type: "article",
       images: [{ url: s.heroImages[0] || "/og/og-services.jpg", width: 1200, height: 630, alt: s.title }],
     },
@@ -153,7 +154,7 @@ export default async function Page(
           <div className="lg:col-span-2 space-y-10">
             <div className="space-y-4">
               <h2 id="why" className="text-2xl md:text-3xl font-extrabold tracking-tight">
-                Why <span style={{ color: ACCENT }}>{s.keyword}</span> with BDI
+                Why <span style={{ color: ACCENT }}>{s.keyword}</span> with {SITE.brand}
               </h2>
               <span className="block h-1 w-16 rounded-full" style={{ background: `linear-gradient(90deg, ${ACCENT}, ${ACCENT}55)` }} />
               <p className="text-muted-foreground md:text-lg max-w-[72ch]">{s.pitch}</p>

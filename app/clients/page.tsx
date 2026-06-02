@@ -14,22 +14,21 @@ import type { Metadata } from "next";
 import ClientsHero from "./ClientsHero";
 import ClientsMarquee from "@/components/Homepage/ClientsMarquee";
 import GlassyImplementationCTA from "@/components/GlassyImplementationCTA";
+import { SITE } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Our Clients — BDI Corporate",
-  description:
-    "BDI Corporate works with businesses across Lebanon and the UAE on systems integration, BI dashboards, and operational automation.",
+  title: `Our Clients — ${SITE.name}`,
+  description: `${SITE.name} works with businesses across ${SITE.contact.regionLabel} on systems integration, BI dashboards, and operational automation.`,
   alternates: { canonical: "/clients" },
   openGraph: {
-    title: "Our Clients — BDI Corporate",
-    description:
-      "BDI Corporate supports multi-branch businesses, operations-driven companies, and leadership teams needing KPI visibility.",
-    url: "https://bdicorporate.com/clients",
+    title: `Our Clients — ${SITE.name}`,
+    description: `${SITE.name} supports multi-branch businesses, operations-driven companies, and leadership teams needing KPI visibility.`,
+    url: `${SITE.baseUrl}/clients`,
     type: "website",
   },
 };
 
-const ACCENT = "#5EC6EA";
+const ACCENT = SITE.colors.accent;
 
 /* ─── Real client data ─────────────────────────────────────────────── */
 const clients = [

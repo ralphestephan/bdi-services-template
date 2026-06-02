@@ -5,11 +5,19 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { routes } from "@/lib/constants";
-
-const BRAND = "#5EC6EA"; // BDI blue
+import { useSiteBrand } from "@/lib/tenant-brand";
 
 export default function Navbar() {
   const pathname = usePathname();
+  const brand = useSiteBrand();
+  const BRAND = brand.accentColor || "#5EC6EA";
+  const brandName = brand.name;
+  const brandWordFirst = brandName.split(" ")[0];
+  const brandWordRest = brandName.includes(" ")
+    ? brandName.slice(brandWordFirst.length + 1)
+    : "";
+  const logoSrc = brand.logoLightUrl || brand.logoUrl || "/logo.png";
+  const homeLabel = `${brandName} home`;
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [progress, setProgress] = useState(0);
@@ -59,22 +67,22 @@ export default function Navbar() {
         <nav className="mx-auto max-w-[1200px] px-4">
           {/* Desktop */}
           <div className="hidden md:flex h-[72px] items-center justify-between">
-            {/* Brand (logo + name; 'Corporate' in brand blue) */}
+            {/* Brand (logo + name; second word in brand accent) */}
             <Link
               href="/"
-              aria-label="BDI Corporate home"
+              aria-label={homeLabel}
               className="inline-flex items-center gap-3"
             >
               <Image
-                src="/logo.png"
-                alt="BDI Corporate"
+                src={logoSrc}
+                alt={brandName}
                 width={160}
                 height={54}
                 className="h-10 w-auto"
                 priority
               />
               <span className="text-lg font-bold tracking-tight text-black">
-                BDI <span style={{ color: BRAND }}>Corporate</span>
+                {brandWordFirst}{brandWordRest ? <> <span style={{ color: BRAND }}>{brandWordRest}</span></> : null}
               </span>
             </Link>
 
@@ -145,17 +153,17 @@ export default function Navbar() {
             </button>
 
             {/* Brand center; show name on >=sm to avoid cramping */}
-            <Link href="/" aria-label="BDI Corporate home" className="justify-self-center inline-flex items-center gap-2">
+            <Link href="/" aria-label={homeLabel} className="justify-self-center inline-flex items-center gap-2">
               <Image
-                src="/logo.png"
-                alt="BDI Corporate"
+                src={logoSrc}
+                alt={brandName}
                 width={140}
                 height={48}
                 className="h-9 w-auto"
                 priority
               />
               <span className="hidden xs:inline text-base font-bold tracking-tight text-black">
-                BDI <span style={{ color: BRAND }}>Corporate</span>
+                {brandWordFirst}{brandWordRest ? <> <span style={{ color: BRAND }}>{brandWordRest}</span></> : null}
               </span>
             </Link>
 
@@ -192,14 +200,14 @@ export default function Navbar() {
       >
         <div className="p-4 pt-6 flex items-center gap-3">
           <Image
-            src="/logo.png"
-            alt="BDI Corporate"
+            src={logoSrc}
+            alt={brandName}
             width={140}
             height={48}
             className="h-9 w-auto"
           />
           <span className="text-lg font-bold tracking-tight text-black">
-            BDI <span style={{ color: BRAND }}>Corporate</span>
+            {brandWordFirst}{brandWordRest ? <> <span style={{ color: BRAND }}>{brandWordRest}</span></> : null}
           </span>
         </div>
 

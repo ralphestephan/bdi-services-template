@@ -20,10 +20,30 @@ import {
   ShieldCheck,
 } from "lucide-react";
 import { routes } from "@/lib/constants";
-
-const ACCENT = "#5EC6EA";
+import { useSiteBrand } from "@/lib/tenant-brand";
+import { telHref } from "@/lib/site";
 
 export default function Footer() {
+  const brand = useSiteBrand();
+  const ACCENT = brand.accentColor || "#5EC6EA";
+  const brandName = brand.name;
+  const brandWordFirst = brandName.split(" ")[0];
+  const brandWordRest = brandName.includes(" ")
+    ? brandName.slice(brandWordFirst.length + 1)
+    : "";
+  const logoSrc = brand.logoLightUrl || brand.logoUrl || "/whitelogo.jpg";
+  const homeLabel = `${brandName} home`;
+  const phonePrimary = brand.phone;
+  const phoneSecondary = brand.phoneSecondary;
+  const supportEmail = brand.supportEmail;
+  const linkedinUrl = brand.linkedinUrl || "https://www.linkedin.com";
+  const twitterUrl = brand.twitterUrl || "https://twitter.com";
+  const offices = brand.offices && brand.offices.length > 0 ? brand.offices : ["Beirut, Lebanon"];
+  const officeLine = offices.join(" • ");
+  const regionLabel = brand.regionLabel;
+  const tagline = brand.tagline;
+  const description = brand.description;
+
   const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(false);
 
@@ -64,6 +84,44 @@ export default function Footer() {
     { href: "/services/automation", label: "AI & Automation", Icon: Bot },
   ];
 
+  // Organization structured data is rendered globally from app/layout.tsx
+  // via generateOrganizationSchema(); the script below adds the per-contact
+  // points sourced from the brand config so they stay env-driven here too.
+  const contactPoints = [
+    {
+      "@type": "ContactPoint",
+      telephone: phonePrimary,
+      contactType: "customer service",
+      areaServed: brand.areasServed,
+      availableLanguage: brand.languages,
+    },
+    ...(phoneSecondary
+      ? [
+          {
+            "@type": "ContactPoint",
+            telephone: phoneSecondary,
+            contactType: "customer service",
+            areaServed: brand.areasServed,
+            availableLanguage: brand.languages,
+          },
+        ]
+      : []),
+  ];
+  const ldOrg = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: brandName,
+    url: brand.siteUrl,
+    logo: brand.logoLightUrl || brand.logoUrl,
+    sameAs: [brand.twitterUrl, brand.linkedinUrl].filter(Boolean),
+    contactPoint: contactPoints,
+    address: (brand.addresses || []).map((a) => ({
+      "@type": "PostalAddress",
+      addressLocality: a.locality,
+      addressCountry: a.country,
+    })),
+  };
+
   return (
     <footer role="contentinfo" className="relative mt-0 bg-black text-white overflow-hidden">
       {/* soft brand glows */}
@@ -80,41 +138,14 @@ export default function Footer() {
 
       {/* Organization JSON-LD */}
       <Script id="ld-org" type="application/ld+json" strategy="afterInteractive">
-        {JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "Organization",
-          name: "BDI Corporate",
-          url: "https://bdicorporate.com",
-          logo: "https://bdicorporate.com/whitelogo.jpg",
-          sameAs: [],
-          contactPoint: [
-            {
-              "@type": "ContactPoint",
-              telephone: "+9613599996",
-              contactType: "customer service",
-              areaServed: ["LB", "AE"],
-              availableLanguage: ["English", "Arabic"],
-            },
-            {
-              "@type": "ContactPoint",
-              telephone: "+971529798517",
-              contactType: "customer service",
-              areaServed: ["AE", "LB"],
-              availableLanguage: ["English", "Arabic"],
-            },
-          ],
-          address: [
-            { "@type": "PostalAddress", addressLocality: "Beirut", addressCountry: "LB" },
-            { "@type": "PostalAddress", addressLocality: "Dubai", addressCountry: "AE" },
-          ],
-        })}
+        {JSON.stringify(ldOrg)}
       </Script>
 
       <div className="container mx-auto max-w-[1200px] px-4 md:px-6 pb-10 pt-8">
         {/* thin creative divider */}
         <div className="mb-8 flex items-center gap-2 text-xs text-white/40">
           <span className="h-[2px] w-10 rounded-full" style={{ background: ACCENT }} />
-          <span>Lebanon • UAE</span>
+          <span>{regionLabel}</span>
           <span className="h-[2px] w-full rounded-full bg-white/10" />
         </div>
 
@@ -122,29 +153,35 @@ export default function Footer() {
         <div className="grid grid-cols-2 md:grid-cols-12 gap-6 md:gap-8">
           {/* Brand */}
           <div className="col-span-2 md:col-span-3 space-y-4">
-            <Link href="/" className="flex items-center gap-3" aria-label="BDI Corporate home">
-              <Image src="/whitelogo.jpg" alt="BDI Corporate logo" width={40} height={60} className="h-12 w-8" />
+            <Link href="/" className="flex items-center gap-3" aria-label={homeLabel}>
+              <Image src={logoSrc} alt={`${brandName} logo`} width={40} height={60} className="h-12 w-8" />
               <span className="text-2xl font-bold">
-                BDI <span style={{ color: ACCENT }}>Corporate</span>
+                {brandWordFirst}{brandWordRest ? <> <span style={{ color: ACCENT }}>{brandWordRest}</span></> : null}
               </span>
             </Link>
-            <p className="text-sm text-white/70 max-w-xs">Connecting systems, centralising reporting, and automating operations for businesses across Lebanon and the UAE.</p>
+            <p className="text-sm text-white/70 max-w-xs">{description || tagline}</p>
 
             <div className="flex items-center gap-3 pt-1">
-              <a href="https://www.linkedin.com" aria-label="LinkedIn" className="rounded-full p-2 hover:bg-white/10">
+              <a href={linkedinUrl} aria-label="LinkedIn" className="rounded-full p-2 hover:bg-white/10">
                 <Linkedin className="h-5 w-5" />
               </a>
-              <a href="https://twitter.com" aria-label="Twitter" className="rounded-full p-2 hover:bg-white/10">
+              <a href={twitterUrl} aria-label="Twitter" className="rounded-full p-2 hover:bg-white/10">
                 <Twitter className="h-5 w-5" />
               </a>
             </div>
 
             {/* tiny credibility chips */}
             <div className="mt-3 flex flex-wrap gap-2">
-
-              <Link href="/locations/lebanon" className="rounded-full border border-white/15 px-3 py-1 text-xs text-white/80 hover:border-white/30 hover:text-white transition-colors">🇱🇧 Beirut</Link>
-              <Link href="/locations/dubai" className="rounded-full border border-white/15 px-3 py-1 text-xs text-white/80 hover:border-white/30 hover:text-white transition-colors">🇦🇪 Dubai</Link>
-                          <span className="inline-flex items-center gap-1 rounded-full border border-white/15 px-3 py-1 text-xs text-white/80">
+              {(brand.addresses || []).map((addr) => (
+                <Link
+                  key={`${addr.locality}-${addr.country}`}
+                  href={`/locations/${addr.locality.toLowerCase().replace(/\s+/g, "-")}`}
+                  className="rounded-full border border-white/15 px-3 py-1 text-xs text-white/80 hover:border-white/30 hover:text-white transition-colors"
+                >
+                  {addr.locality}
+                </Link>
+              ))}
+              <span className="inline-flex items-center gap-1 rounded-full border border-white/15 px-3 py-1 text-xs text-white/80">
                 <ShieldCheck className="h-3.5 w-3.5 text-white/70" /> ISO-friendly
               </span>
             </div>
@@ -181,22 +218,26 @@ export default function Footer() {
             <ul className="space-y-3 text-sm">
               <li className="flex items-start gap-2">
                 <MapPin className="mt-0.5 h-6 w-6 text-white/90" aria-hidden />
-                <span className="text-white/70">Beirut, Lebanon • Dubai, UAE</span>
+                <span className="text-white/70">{officeLine}</span>
               </li>
               <li className="flex items-center gap-2">
                 <Phone className="h-6 w-6 text-white/90" aria-hidden />
-                <a className="text-white/70 hover:underline whitespace-nowrap" href="tel:+9613599996">
-                  +961&nbsp;3&nbsp;599&nbsp;996
+                <a className="text-white/70 hover:underline whitespace-nowrap" href={telHref(phonePrimary)}>
+                  {phonePrimary}
                 </a>
-                <span className="px-1.5 text-white/30">|</span>
-                <a className="text-white/70 hover:underline whitespace-nowrap" href="tel:+971529798517">
-                  +971&nbsp;52&nbsp;979&nbsp;8517
-                </a>
+                {phoneSecondary ? (
+                  <>
+                    <span className="px-1.5 text-white/30">|</span>
+                    <a className="text-white/70 hover:underline whitespace-nowrap" href={telHref(phoneSecondary)}>
+                      {phoneSecondary}
+                    </a>
+                  </>
+                ) : null}
               </li>
               <li className="flex items-center gap-2">
                 <Mail className="h-5 w-5 text-white/90" aria-hidden />
-                <a className="text-white/70 hover:underline" href="mailto:info@bdicorporate.com">
-                  info@bdicorporate.com
+                <a className="text-white/70 hover:underline" href={`mailto:${supportEmail}`}>
+                  {supportEmail}
                 </a>
               </li>
             </ul>
@@ -259,7 +300,7 @@ export default function Footer() {
         {/* bottom line */}
         <div className="mt-10 border-t border-white/10 pt-6 flex flex-col items-center justify-between gap-3 md:flex-row">
           <p className="text-sm text-white/60">
-            © {new Date().getFullYear()} BDI Corporate. All rights reserved.
+            © {new Date().getFullYear()} {brand.legalName}. All rights reserved.
           </p>
           <div className="flex items-center gap-4 text-sm">
             <Link href="/privacy" className="text-white/60 hover:text-white">
@@ -272,7 +313,7 @@ export default function Footer() {
               Glossary
             </Link>
             <span className="text-white/40">•</span>
-            <span className="text-white/60">Made in Lebanon & UAE</span>
+            <span className="text-white/60">Made in {regionLabel}</span>
           </div>
         </div>
       </div>

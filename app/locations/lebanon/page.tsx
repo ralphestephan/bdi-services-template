@@ -3,25 +3,27 @@ import Link from "next/link";
 import Image from "next/image";
 import GlassyImplementationCTA from "@/components/GlassyImplementationCTA";
 import { Phone, Mail, MapPin, ArrowRight, Building2, Users, TrendingUp, Zap } from "lucide-react";
+import { SITE } from "@/lib/site";
 
-const BRAND = "#5EC6EA";
+const BRAND = SITE.colors.accent;
+const PHONE_LEBANON = SITE.contact.phone;
 
 export const metadata: Metadata = {
-  title: "Business Intelligence Solutions in Lebanon | BDI Corporate",
+  title: `Business Intelligence Solutions in Lebanon | ${SITE.name}`,
   description: "Premier business intelligence and digital transformation services in Lebanon. Expert systems integration, AI analytics, and data-driven solutions for Lebanese businesses.",
   alternates: {
     canonical: "/locations/lebanon",
   },
   openGraph: {
-    title: "Business Intelligence Solutions in Lebanon | BDI Corporate",
+    title: `Business Intelligence Solutions in Lebanon | ${SITE.name}`,
     description: "Transform your Lebanese business with cutting-edge BI solutions, AI analytics, and digital transformation services.",
-    url: "https://bdicorporate.com/locations/lebanon",
+    url: `${SITE.baseUrl}/locations/lebanon`,
     images: [
       {
         url: "/lebanon-business.jpg",
         width: 1200,
         height: 630,
-        alt: "BDI Corporate Lebanon Office - Business Intelligence Solutions",
+        alt: `${SITE.name} Lebanon Office - Business Intelligence Solutions`,
       },
     ],
   },
@@ -36,10 +38,10 @@ export default function LebanonPage() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "LocalBusiness",
-            "name": "BDI Corporate - Lebanon Office",
+            "name": `${SITE.name} - Lebanon Office`,
             "description": "Business intelligence and digital transformation services in Lebanon",
-            "url": "https://bdicorporate.com/locations/lebanon",
-            "telephone": "+9613599996",
+            "url": `${SITE.baseUrl}/locations/lebanon`,
+            "telephone": PHONE_LEBANON,
             "address": {
               "@type": "PostalAddress",
               "addressLocality": "Beirut",
@@ -52,8 +54,8 @@ export default function LebanonPage() {
             "serviceType": ["Business Intelligence", "Digital Transformation", "Systems Integration", "AI Analytics"],
             "parentOrganization": {
               "@type": "Organization",
-              "name": "BDI Corporate",
-              "url": "https://bdicorporate.com"
+              "name": SITE.name,
+              "url": SITE.baseUrl
             }
           })
         }}
@@ -126,14 +128,14 @@ export default function LebanonPage() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-white/70">
                   <div className="flex items-center gap-3">
                     <Phone className="h-5 w-5" style={{ color: BRAND }} />
-                    <a href="tel:+9613599996" className="hover:text-white transition-colors">
-                      +961 3 599 996
+                    <a href={`tel:${PHONE_LEBANON.replace(/[^\d+]/g, "")}`} className="hover:text-white transition-colors">
+                      {PHONE_LEBANON}
                     </a>
                   </div>
                   <div className="flex items-center gap-3">
                     <Mail className="h-5 w-5" style={{ color: BRAND }} />
-                    <a href="mailto:info@bdicorporate.com" className="hover:text-white transition-colors">
-                      info@bdicorporate.com
+                    <a href={`mailto:${SITE.contact.email}`} className="hover:text-white transition-colors">
+                      {SITE.contact.email}
                     </a>
                   </div>
                 </div>
@@ -219,13 +221,13 @@ export default function LebanonPage() {
           </div>
         </section>
 
-        {/* Why Choose BDI Section */}
+        {/* Why Choose Section */}
         <section className="py-16 lg:py-24 bg-gradient-to-br from-slate-50 to-blue-50/30">
           <div className="container mx-auto px-4">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div>
                 <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
-                  Why Choose <span style={{ color: BRAND }}>BDI</span> in Lebanon
+                  Why Choose <span style={{ color: BRAND }}>{SITE.brand}</span> in Lebanon
                 </h2>
                 <div className="space-y-6">
                   {[

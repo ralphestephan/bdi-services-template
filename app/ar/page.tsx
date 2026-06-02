@@ -1,19 +1,20 @@
 import { Metadata } from 'next';
 import { generateSEO } from '@/lib/seo';
+import { SITE } from '@/lib/site';
 
 export const metadata: Metadata = generateSEO({
-  title: 'بي دي آي كوربوريت - حلول ذكاء الأعمال الرائدة',
-  description: 'شريكك في التحول الرقمي وذكاء الأعمال في دبي ولبنان. خدمات متكاملة في تحليل البيانات والذكاء الاصطناعي وحلول الأعمال.',
+  title: SITE.name,
+  description: SITE.description,
   path: '/ar',
   locale: 'ar_AE',
   jsonLd: {
     '@context': 'https://schema.org',
     '@type': 'Organization',
-    name: 'BDI Corporate',
-    url: 'https://bdicorporate.com/ar',
-    logo: 'https://bdicorporate.com/logo.png',
-    description: 'خدمات ذكاء الأعمال والتحول الرقمي في دبي ولبنان',
-    areaServed: ['الإمارات العربية المتحدة', 'لبنان', 'الشرق الأوسط'],
+    name: SITE.name,
+    url: `${SITE.baseUrl}/ar`,
+    logo: `${SITE.baseUrl}${SITE.org.logo}`,
+    description: SITE.description,
+    areaServed: SITE.org.areasServed,
   },
 });
 

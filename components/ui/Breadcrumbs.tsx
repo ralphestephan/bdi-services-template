@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { SITE } from '@/lib/site';
 
 interface BreadcrumbItem {
   label: string;
@@ -18,7 +19,7 @@ export default function Breadcrumbs({ items, className = '' }: BreadcrumbsProps)
       '@type': 'ListItem',
       position: index + 1,
       item: {
-        '@id': `https://bdicorporate.com${item.href}`,
+        '@id': `${SITE.baseUrl}${item.href}`,
         name: item.label,
       },
     })),

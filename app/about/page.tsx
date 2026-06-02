@@ -12,26 +12,25 @@ import type { Metadata } from "next";
 import Script from "next/script";
 import GlassyImplementationCTA from "@/components/GlassyImplementationCTA";
 import AboutHero from "./AboutHero";
+import { SITE } from "@/lib/site";
 
-const ACCENT = "#5EC6EA";
+const ACCENT = SITE.colors.accent;
 
 export const metadata: Metadata = {
-  title: "About BDI Corporate — Business Technology & Transformation Partner",
-  description:
-    "BDI Corporate works with businesses that need better system coordination, clearer reporting, and more efficient operations. Learn who we are and how we work.",
+  title: `About ${SITE.name} — Business Technology & Transformation Partner`,
+  description: `${SITE.name} works with businesses that need better system coordination, clearer reporting, and more efficient operations. Learn who we are and how we work.`,
   alternates: { canonical: "/about" },
   openGraph: {
-    title: "About BDI Corporate",
-    description:
-      "BDI Corporate is a business technology and transformation partner helping companies improve operations, reporting, and decision-making.",
-    url: "https://bdicorporate.com/about",
+    title: `About ${SITE.name}`,
+    description: `${SITE.name} is a business technology and transformation partner helping companies improve operations, reporting, and decision-making.`,
+    url: `${SITE.baseUrl}/about`,
     type: "profile",
     images: [
       {
         url: "/og/og-about.jpg",
         width: 1200,
         height: 630,
-        alt: "About BDI Corporate",
+        alt: `About ${SITE.name}`,
       },
     ],
   },
@@ -44,10 +43,9 @@ export default function AboutPage() {
         {JSON.stringify({
           "@context": "https://schema.org",
           "@type": "AboutPage",
-          name: "About BDI Corporate",
-          url: "https://bdicorporate.com/about",
-          description:
-            "BDI Corporate is a business technology and transformation partner helping companies improve operations, reporting, and decision-making through systems integration, business intelligence, and practical automation.",
+          name: `About ${SITE.name}`,
+          url: `${SITE.baseUrl}/about`,
+          description: `${SITE.name} is a business technology and transformation partner helping companies improve operations, reporting, and decision-making through systems integration, business intelligence, and practical automation.`,
         })}
       </Script>
 
@@ -68,7 +66,7 @@ export default function AboutPage() {
                 </Badge>
                 <h2 className="text-3xl md:text-4xl font-bold tracking-tight">Who we are</h2>
                 <p className="mt-4 text-muted-foreground">
-                  BDI Corporate works with businesses that need better system
+                  {SITE.name} works with businesses that need better system
                   coordination, clearer reporting, and more efficient operations.
                   We combine business understanding with practical implementation
                   to help organisations improve how they work.
@@ -210,7 +208,7 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* ============= WHY CLIENTS CHOOSE BDI CORPORATE ============= */}
+        {/* ============= WHY CLIENTS CHOOSE THE BRAND ============= */}
         <section className="py-10 md:py-16">
           <div className="container mx-auto max-w-[1200px] px-4 md:px-6">
             <div className="max-w-2xl mb-10">
@@ -218,10 +216,10 @@ export default function AboutPage() {
                 className="rounded-full border text-foreground mb-3"
                 style={{ background: `${ACCENT}1A`, borderColor: `${ACCENT}33` }}
               >
-                Why BDI Corporate
+                Why {SITE.name}
               </Badge>
               <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
-                Why clients choose BDI Corporate
+                Why clients choose {SITE.name}
               </h2>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -231,7 +229,7 @@ export default function AboutPage() {
                 { icon: ShieldCheck, title: "Clear scope and deliverables", desc: "Defined outputs agreed upfront — no scope creep, no ambiguity." },
                 { icon: Users, title: "Strong focus on usability and adoption", desc: "Solutions built so your teams can actually use them from day one." },
                 { icon: Globe2, title: "Vendor-agnostic thinking", desc: "We recommend what is right for your business, not what benefits a vendor." },
-                { icon: Lightbulb, title: "Regional understanding", desc: "Experienced in Lebanon and UAE business environments and working practices." },
+                { icon: Lightbulb, title: "Regional understanding", desc: `Experienced in ${SITE.contact.regionLabel} business environments and working practices.` },
               ].map((item, i) => (
                 <div key={i} className="flex items-start gap-3 rounded-xl border bg-white p-4 hover:shadow-md hover:shadow-primary/5 transition-shadow duration-200">
                   <item.icon className="h-5 w-5 mt-0.5 shrink-0" style={{ color: ACCENT }} />

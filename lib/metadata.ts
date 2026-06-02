@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import { SITE } from "./site";
 
 export function generateMetadata(
   title: string,
@@ -6,9 +7,9 @@ export function generateMetadata(
   path: string,
   imageUrl?: string,
 ): Metadata {
-  const fullTitle = `${title} | BDI Corporate`;
-  const fullUrl = `https://bdicorporate.com${path}`;
-  
+  const fullTitle = `${title} | ${SITE.name}`;
+  const fullUrl = `${SITE.baseUrl}${path}`;
+
   return {
     title: fullTitle,
     description,
@@ -21,7 +22,7 @@ export function generateMetadata(
       url: fullUrl,
       images: [
         {
-          url: imageUrl || "/og/og-home.jpg",
+          url: imageUrl || SITE.ogImage,
           width: 1200,
           height: 630,
           alt: title,
@@ -33,9 +34,9 @@ export function generateMetadata(
       card: "summary_large_image",
       title: fullTitle,
       description,
-      images: [imageUrl || "/og/og-home.jpg"],
-      creator: "@bdicorporate",
-      site: "@bdicorporate",
+      images: [imageUrl || SITE.ogImage],
+      creator: SITE.socials.twitter,
+      site: SITE.socials.twitter,
     },
   };
 }
@@ -52,11 +53,11 @@ export function generateServiceSchema(
     description,
     provider: {
       "@type": "Organization",
-      name: "BDI Corporate",
-      url: "https://bdicorporate.com"
+      name: SITE.name,
+      url: SITE.baseUrl,
     },
-    areaServed: ["UAE", "Lebanon", "Middle East"],
-    availableLanguage: ["English", "Arabic"],
+    areaServed: SITE.org.areasServed,
+    availableLanguage: SITE.org.languages,
     url,
   };
 }
@@ -84,7 +85,7 @@ export function generateBreadcrumbSchema(items: { name: string; url: string }[])
       "@type": "ListItem",
       position: index + 1,
       name: item.name,
-      item: `https://bdicorporate.com${item.url}`
+      item: `${SITE.baseUrl}${item.url}`
     }))
   };
 }

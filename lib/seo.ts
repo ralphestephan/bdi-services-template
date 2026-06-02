@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import { SITE } from './site';
 
 interface SEOProps {
   title: string;
@@ -25,7 +26,7 @@ export function generateSEO({
   jsonLd,
 }: SEOProps): Metadata {
   const defaultImage = {
-    url: '/og/og-home.jpg',
+    url: SITE.ogImage,
     width: 1200,
     height: 630,
     alt: title,
@@ -37,16 +38,16 @@ export function generateSEO({
     alternates: {
       canonical: path,
       languages: {
-        'en': `https://bdicorporate.com${path}`,
-        'ar': `https://bdicorporate.com/ar${path}`,
+        'en': `${SITE.baseUrl}${path}`,
+        'ar': `${SITE.baseUrl}/ar${path}`,
       },
     },
     openGraph: {
       type,
-      url: `https://bdicorporate.com${path}`,
+      url: `${SITE.baseUrl}${path}`,
       title,
       description,
-      siteName: 'BDI Corporate',
+      siteName: SITE.name,
       images: images || [defaultImage],
       locale,
     },
@@ -55,8 +56,8 @@ export function generateSEO({
       title,
       description,
       images: images?.map(img => img.url) || [defaultImage.url],
-      creator: '@bdicorporate',
-      site: '@bdicorporate',
+      creator: SITE.socials.twitter,
+      site: SITE.socials.twitter,
     },
   };
 

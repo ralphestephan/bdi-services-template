@@ -1,6 +1,7 @@
 
   "use client";
 import * as React from "react";
+import { useSiteBrand } from "@/lib/tenant-brand";
 
 
 
@@ -49,6 +50,12 @@ function TOC({ items }: { items: { id: string; label: string }[] }) {
 }
 
 export default function TermsPage() {
+  const brand = useSiteBrand();
+  const brandName = brand.name;
+  const legalName = brand.legalName;
+  const supportEmail = brand.supportEmail;
+  const legalEmail = brand.legalEmail;
+  const legalJurisdiction = brand.legalJurisdiction;
   const effective = "September 30, 2025";
 
   const toc = [
@@ -77,13 +84,13 @@ export default function TermsPage() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "WebPage",
-            "name": "Terms of Service - BDI Corporate",
-            "description": "Terms of service for BDI Corporate's systems integration, business intelligence, and automation services.",
-            "url": "https://bdicorporate.com/terms",
+            "name": `Terms of Service - ${brandName}`,
+            "description": `Terms of service for ${brandName}'s systems integration, business intelligence, and automation services.`,
+            "url": `${brand.siteUrl}/terms`,
             "isPartOf": {
               "@type": "WebSite",
-              "name": "BDI Corporate",
-              "url": "https://bdicorporate.com"
+              "name": brandName,
+              "url": brand.siteUrl
             },
             "lastReviewed": effective,
             "audience": {
@@ -113,7 +120,7 @@ export default function TermsPage() {
             </span>
           </h1>
           <p className="mt-2 text-zinc-700 max-w-2xl mx-auto">
-            The rules for using BDI Corporate’s website and services.
+            The rules for using {brandName}’s website and services.
           </p>
           <div className="mt-2 text-xs text-zinc-500">Effective: {effective}</div>
           <span className="mt-3 mx-auto block h-1 w-20 rounded-full bg-gradient-to-r from-[#1e90ff] to-[#23d5ab]" />
@@ -132,7 +139,7 @@ export default function TermsPage() {
                 title: "Overview",
                 body: (
                   <p>
-                    These Terms form a binding agreement between you and BDI Corporate (“we”, “us”, “our”).
+                    These Terms form a binding agreement between you and {legalName} (“we”, “us”, “our”).
                     If a signed Statement of Work (SOW) conflicts with these Terms, the SOW controls.
                   </p>
                 ),
@@ -177,8 +184,7 @@ export default function TermsPage() {
                   <ul className="list-disc pl-6 space-y-1">
                     <li>You own deliverables created for you upon full payment.</li>
                     <li>
-                      We retain reusable libraries and know-how; you get a perpetual, non-exclusive license to embedded
-                      BDI components for internal use.
+                      We retain reusable libraries and know-how; you get a perpetual, non-exclusive license to embedded {brandName} components for internal use.
                     </li>
                     <li>We may reference your name/logo as a client with prior consent (opt-out anytime).</li>
                   </ul>
@@ -267,8 +273,7 @@ export default function TermsPage() {
                 title: "Governing Law",
                 body: (
                   <p>
-                    These Terms are governed by the laws of <strong>Lebanon</strong> (Beirut courts) or the{" "}
-                    <strong>UAE</strong> (Dubai courts) as designated in the SOW. The CISG does not apply.
+                    These Terms are governed by the laws of {legalJurisdiction} as designated in the SOW. The CISG does not apply.
                   </p>
                 ),
               },
@@ -283,12 +288,12 @@ export default function TermsPage() {
                 body: (
                   <p>
                     Legal:{" "}
-                    <a className="text-[#1e90ff] font-semibold" href="mailto:legal@bdicorporate.com">
-                      legal@bdicorporate.com
+                    <a className="text-[#1e90ff] font-semibold" href={`mailto:${legalEmail}`}>
+                      {legalEmail}
                     </a>{" "}
                     • General:{" "}
-                    <a className="text-[#1e90ff] font-semibold" href="mailto:info@bdicorporate.com">
-                      info@bdicorporate.com
+                    <a className="text-[#1e90ff] font-semibold" href={`mailto:${supportEmail}`}>
+                      {supportEmail}
                     </a>
                   </p>
                 ),
