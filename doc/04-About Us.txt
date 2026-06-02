@@ -1,0 +1,268 @@
+Do not touch the homepage, services page, or other pages. Modify the About Us page only, while keeping the existing routing, layout system, and design language intact.
+
+You are a senior B2B website strategist, corporate brand writer, UX copywriter, and front-end refactoring assistant.
+
+Your task is to modify ONLY the ABOUT US PAGE of the existing BDI Corporate website codebase.
+
+OBJECTIVE
+Make the About Us page more professional, corporate, credible, concise, and trust-building.
+
+The page must:
+- explain clearly who BDI Corporate is
+- communicate credibility and seriousness
+- feel more human and more corporate at the same time
+- avoid unnecessary long storytelling
+- avoid duplication with Home and Services
+- strengthen trust for decision-makers and prospective clients
+
+IMPORTANT SCOPE
+- Modify ONLY the About Us page
+- Do not redesign the full website
+- Do not modify homepage, services, contact, or other pages unless required for link consistency
+- Keep the existing tech stack, layout system, and styling approach where possible
+- Reuse existing components if practical, but improve hierarchy, spacing, structure, and copy clarity
+- Preserve current routing
+
+COMPANY CONTEXT
+- Main brand: BDI Corporate
+- BDI Corporate is the company
+- BDI Systems is a productized layer or sub-offer, not the main About Us identity
+- Website objective: attract qualified clients and present BDI Corporate as a serious consulting and implementation partner
+- Target audience: business owners, CEOs, COOs, operations managers, finance teams, and organizations seeking systems integration, BI dashboards, automation, and business improvement support
+- Tone: corporate, direct, credible, practical, confident
+- Avoid hype, startup-style fluff, generic inspirational text, and heavy jargon
+
+STRATEGIC GOAL OF THE ABOUT PAGE
+The About page should do these things only:
+1. Explain who BDI Corporate is
+2. Clarify what kind of company it is
+3. Build confidence in the team and delivery approach
+4. Communicate values through practical business language
+5. Support conversion by reinforcing trust and making next steps easy
+
+WHAT TO REMOVE OR REDUCE
+Reduce or remove any content that creates clutter, vagueness, repetition, or weakens trust, especially:
+- overly long mission/vision storytelling
+- generic inspirational wording
+- repeated explanations of services already covered on Services pages
+- repeated homepage messaging
+- large product-style promotion of BDI Systems
+- vague milestone sections if they do not add credibility
+- filler content that sounds good but says little
+- any section that makes the page feel too long without increasing trust
+
+PAGE STRATEGY
+The About page should feel like a concise corporate credibility page.
+
+It should answer:
+- Who is BDI Corporate?
+- What does the company stand for?
+- How does it work with clients?
+- Why should a business trust BDI Corporate?
+- What kind of partner is BDI Corporate?
+
+RECOMMENDED PAGE STRUCTURE
+
+SECTION 1 — PAGE HERO
+Purpose:
+Introduce the company clearly and professionally.
+
+Suggested headline:
+“BDI Corporate is a business technology and transformation partner.”
+
+Suggested supporting text:
+“We help companies improve operations, reporting, and decision-making through systems integration, business intelligence, and practical automation.”
+
+Optional CTA:
+- “Contact us”
+- “View services”
+
+Important:
+- Keep the hero concise
+- Do not overload it with company history
+- Do not lead with BDI Systems
+- Make the company identity clear immediately
+
+SECTION 2 — WHO WE ARE
+Purpose:
+Provide a simple and credible company description.
+
+Suggested title:
+“Who we are”
+
+Suggested body copy direction:
+“BDI Corporate works with businesses that need better system coordination, clearer reporting, and more efficient operations. We combine business understanding with practical implementation to help organizations improve how they work.”
+
+Alternative/additional copy direction:
+“We focus on solutions that are usable, measurable, and aligned with business priorities rather than unnecessary complexity.”
+
+Important:
+- Keep this section compact
+- Use plain corporate language
+- Avoid repeating detailed service descriptions
+
+SECTION 3 — WHAT WE HELP CLIENTS ACHIEVE
+Purpose:
+Frame the company around outcomes, not abstract values.
+
+Suggested title:
+“What we help clients achieve”
+
+Suggested points:
+- Better visibility across the business
+- More reliable reporting and KPI tracking
+- Better coordination between systems and teams
+- Less manual work and operational friction
+- More structured execution and decision-making
+
+Important:
+- Use short bullets or cards
+- Keep it business-focused
+- This is not a service list section
+
+SECTION 4 — HOW WE WORK
+Purpose:
+Build trust through delivery approach.
+
+Suggested title:
+“How we work”
+
+Suggested structure:
+3 short principles or steps:
+- Understand the business context
+- Define focused scope and priorities
+- Deliver practical, usable solutions
+
+Suggested supporting line:
+“Our approach is structured, business-led, and focused on clear outputs that teams can actually use.”
+
+Important:
+- Keep this short
+- No long process diagram
+- No duplication of detailed project methodology from other pages
+
+SECTION 5 — WHY CLIENTS CHOOSE BDI CORPORATE
+Purpose:
+Strengthen credibility and differentiation.
+
+Suggested title:
+“Why clients choose BDI Corporate”
+
+Suggested points:
+- Business-first approach
+- Practical implementation mindset
+- Clear scope and deliverables
+- Strong focus on usability and adoption
+- Vendor-agnostic thinking
+- Regional understanding of Lebanon and UAE business needs
+
+Important:
+- Use concise cards or bullets
+- Focus on real buying reasons
+- Avoid exaggerated claims
+
+SECTION 6 — OPTIONAL TEAM / LEADERSHIP CREDIBILITY BLOCK
+Purpose:
+Humanize the company and improve trust.
+
+If the current codebase supports it, add a simple team/leadership style section, even if placeholder-based.
+
+Suggested title:
+“Built around practical expertise”
+
+Suggested content direction:
+- Cross-functional business and technology mindset
+- Focus on implementation, structure, and measurable improvement
+- Experience supporting operational and reporting needs across different business contexts
+
+Important:
+- Keep this corporate and understated
+- Do not invent people, biographies, or credentials
+- If no real team data exists, use a generic credibility framing block rather than fake names
+
+SECTION 7 — FINAL CTA
+Purpose:
+Make the next step easy after trust has been built.
+
+Suggested headline:
+“Looking for a practical partner to improve systems, reporting, or operations?”
+
+Suggested text:
+“Let’s discuss your priorities and identify the most relevant starting point for your business.”
+
+Buttons:
+- “Contact us”
+- “View services”
+
+Important:
+- Use one final CTA only
+- Keep it clean and clear
+
+COPY DIRECTION
+Use copy that is:
+- direct
+- credible
+- clear
+- business-oriented
+- restrained
+- professional
+
+Avoid:
+- empty brand language
+- overuse of words like innovation, excellence, journey, passion, cutting-edge unless they add real meaning
+- long paragraphs
+- repeating the exact same message from the homepage
+- product-heavy language around BDI Systems
+
+Preferred style examples:
+- “We help businesses improve visibility, coordination, and execution.”
+- “Our work is structured around practical priorities and usable outcomes.”
+- “We combine business understanding with implementation discipline.”
+- “Clear scope. Practical delivery. Business value.”
+
+DESIGN DIRECTION
+- clean and premium
+- corporate and trustworthy
+- structured whitespace
+- strong hierarchy
+- readable sections
+- minimal clutter
+- restrained visual style
+- avoid decorative excess
+- mobile responsive
+- high readability
+
+UX RULES
+- One clear H1 only
+- Each section must help build trust or clarity
+- Reduce overlap with Home and Services
+- Keep the page reasonably concise
+- Make the page feel more human, but still corporate
+- Keep CTA hierarchy simple and consistent
+
+TECHNICAL IMPLEMENTATION RULES
+- Inspect current About Us page structure first
+- Refactor rather than rebuild from zero where possible
+- Reuse components where practical
+- Remove redundant sections or condense them
+- Improve heading hierarchy, spacing, card clarity, and CTA consistency
+- Keep final code production-ready
+- Maintain consistency with the current website design system
+
+DELIVERABLE
+Modify the About Us page so it becomes:
+- clearer
+- more credible
+- more corporate
+- more concise
+- more trust-building
+- less repetitive
+- more aligned with BDI Corporate as the main company brand
+
+Before coding, do these 4 things:
+1. Identify which current About Us page sections should be removed, reduced, or rewritten
+2. Show the proposed final section order
+3. Explain how duplication with Home and Services will be reduced
+4. Explain how the new About Us page will improve trust and company credibility
+
+Then implement the About Us page changes in code.

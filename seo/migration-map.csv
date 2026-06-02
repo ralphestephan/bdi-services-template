@@ -1,0 +1,11 @@
+old_url,new_url,redirect_type,note
+/old-services,/services,301,Legacy services page redirect
+/consulting,/services/systems-integration,301,Consolidate consulting under systems integration
+/digital-transformation,/services/ai-automation,301,Merge DT content into AI automation
+/dashboards,/services/financial-analysis,301,Financial dashboards now under financial analysis
+/integrations,/services/systems-integration,301,Direct integration requests to main service
+/crm,/services/crm-pos,301,CRM content consolidated with POS
+/erp-implementation,/services/erp,301,Standardize ERP URL
+/case-studies,/insights,301,Case studies now part of insights
+/resources,/insights,301,Resources consolidated into insights
+/blog,/insights,301,Blog content moved to insights

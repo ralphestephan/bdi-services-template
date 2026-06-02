@@ -1,0 +1,286 @@
+You are a senior B2B website strategist, UX copywriter, information architect, and front-end refactoring assistant.
+
+Your task is to modify ONLY the SERVICES PAGE of the existing BDI Corporate website codebase.
+
+OBJECTIVE
+Make the Services page more professional, corporate, simple, clear, and commercially effective.
+
+The page must:
+- explain the services more clearly
+- feel more premium and structured
+- reduce repetition
+- avoid overlap with the homepage
+- avoid unnecessary long sections
+- guide the visitor toward inquiry
+- present BDI Corporate as a serious consulting and implementation partner
+
+IMPORTANT SCOPE
+- Modify ONLY the Services page
+- Do not redesign the full website
+- Do not heavily modify service detail pages unless required for link consistency
+- Keep the existing tech stack, layout system, and styling approach where possible
+- Reuse current components if practical, but improve hierarchy, spacing, and content clarity
+- Preserve existing routing
+
+COMPANY CONTEXT
+- Main brand: BDI Corporate
+- BDI Corporate is the company
+- BDI Systems is a sub-offer / productized layer, not the main brand identity of the page
+- Target audience: business owners, CEOs, COOs, operations managers, finance teams, and companies looking for systems integration, BI dashboards, and workflow automation
+- Tone: corporate, direct, credible, clear, practical
+- Avoid fluff, hype, startup-style language, and excessive technical jargon
+
+STRATEGIC GOAL OF THE SERVICES PAGE
+The Services page should do these things only:
+1. Present the 3 main service categories clearly
+2. Explain the business value of each one
+3. Help visitors identify which service fits their needs
+4. Show how BDI works at a high level
+5. Push visitors toward Contact / Discovery Call / Service Detail Pages
+
+WHAT TO REMOVE OR REDUCE
+Reduce or remove any content that creates clutter, repetition, or confusion, especially:
+- overly long repetitive copy
+- fragmented metric blocks that are hard to understand
+- repeated product promotion blocks for BDI Systems
+- pricing-style or package-heavy blocks if they make the page feel cheap or too tactical
+- content that duplicates the homepage too much
+- content that belongs on About, FAQ, or Contact
+- generic filler text
+- dense sections with weak visual hierarchy
+
+PAGE STRATEGY
+The Services page should feel like a structured corporate overview page, not a long sales landing page.
+
+It should answer:
+- What services does BDI Corporate provide?
+- What business problems do these services solve?
+- Which service is relevant to me?
+- What happens next if I want to engage?
+
+RECOMMENDED PAGE STRUCTURE
+
+SECTION 1 — PAGE HERO
+Purpose:
+Introduce the Services page clearly and simply.
+
+Suggested headline:
+“Services designed to improve visibility, efficiency, and execution.”
+
+Suggested supporting text:
+“BDI Corporate helps businesses connect systems, centralize reporting, and automate operations through focused, practical delivery.”
+
+CTA options:
+- “Contact us”
+- “Book a discovery call”
+
+Important:
+- Keep this hero shorter than a homepage hero
+- No long explanations
+- No product-heavy messaging
+- No dominance of BDI Systems in the hero
+
+SECTION 2 — SERVICES OVERVIEW
+Purpose:
+Present the 3 core services in a clean, easy-to-scan way.
+
+Title:
+“Our core services”
+
+Service 1:
+“Systems Integration”
+Suggested short description:
+“We connect ERP, CRM, POS, ecommerce, finance, and operational tools into one structured environment.”
+
+Suggested bullet outcomes:
+- Reduced silos
+- Better data flow
+- Cleaner operations
+
+Service 2:
+“Business Intelligence”
+Suggested short description:
+“We transform business data into dashboards, KPI frameworks, and reporting that supports better decisions.”
+
+Suggested bullet outcomes:
+- Clear executive visibility
+- Better reporting
+- Faster decisions
+
+Service 3:
+“Automation”
+Suggested short description:
+“We automate recurring workflows, approvals, alerts, and internal processes to reduce manual effort.”
+
+Suggested bullet outcomes:
+- Less manual work
+- Better consistency
+- Higher execution speed
+
+Important:
+- Use strong card hierarchy
+- Keep each service concise
+- Link each card clearly to its service detail page if those exist
+- Avoid long technical paragraphs
+
+SECTION 3 — WHO THESE SERVICES ARE FOR
+Purpose:
+Help visitors self-identify quickly.
+
+Title:
+“Who we work with”
+
+Suggested intro:
+“Our services are designed for companies that need clearer visibility, better system coordination, and less operational friction.”
+
+Suggested audience bullets/cards:
+- Multi-branch businesses
+- Companies using disconnected systems
+- Leadership teams needing KPI visibility
+- Operations-heavy businesses
+- Businesses implementing or improving ERP / CRM / POS / reporting workflows
+
+Important:
+- Keep this section compact
+- Use business language, not niche technical language
+
+SECTION 4 — WHAT CLIENTS TYPICALLY NEED
+Purpose:
+Frame services around business problems, not only features.
+
+Title:
+“Common business challenges we solve”
+
+Suggested items:
+- Disconnected tools and inconsistent data
+- Manual reporting and spreadsheet dependency
+- Weak visibility across departments
+- Slow approvals and repetitive admin work
+- Lack of structured dashboards and KPI tracking
+
+Important:
+- This section should make the page feel practical and relevant
+- Keep to 4–5 concise points max
+
+SECTION 5 — HOW BDI WORKS
+Purpose:
+Give a short engagement model without turning this into a long process page.
+
+Title:
+“How we work”
+
+Suggested 3-step format:
+1. Assess priorities
+2. Define scope and deliverables
+3. Implement practical solutions
+
+Suggested short paragraph:
+“We focus on clear scope, usable outputs, and business-first implementation rather than unnecessary complexity.”
+
+Important:
+- Keep this short
+- Do not build a long timeline
+- Do not repeat content from About or Contact
+
+SECTION 6 — OPTIONAL BDI SYSTEMS MENTION
+Purpose:
+Only if needed, position BDI Systems properly without confusing the brand.
+
+Rules:
+- BDI Systems must not dominate the Services page
+- Present it only as a supporting productized layer or operational platform under BDI Corporate
+- It should appear lower on the page, if included
+- Keep it short and clearly subordinate to the main services
+
+Suggested framing:
+“BDI Systems can also support selected client engagements as a structured portal layer for dashboards, workflows, requests, and operational visibility.”
+
+Important:
+- Do not make this a large promo block
+- Do not create brand confusion
+- If current implementation overuses BDI Systems, reduce it significantly
+
+SECTION 7 — FINAL CTA
+Purpose:
+Convert interest into inquiry.
+
+Suggested headline:
+“Need the right starting point for your business?”
+
+Suggested text:
+“We can help define the most relevant service scope based on your systems, reporting needs, and operational priorities.”
+
+Buttons:
+- “Contact us”
+- “Book a discovery call”
+
+Important:
+- One final CTA only
+- Strong visual clarity
+- No extra repeated CTA sections above and below unnecessarily
+
+COPY DIRECTION
+Use copy that is:
+- direct
+- simple
+- professional
+- business-oriented
+- clear for decision-makers
+
+Avoid:
+- buzzwords for the sake of sounding advanced
+- vague transformation language without practical meaning
+- long stacked paragraphs
+- repeated mentions of the same concepts
+
+Preferred message style:
+- “Connect your business systems into one operating environment.”
+- “Turn disconnected data into clear reporting and KPI visibility.”
+- “Reduce manual work with structured automation.”
+- “Focused scope. Practical delivery. Clear business value.”
+
+DESIGN DIRECTION
+- clean and premium
+- structured section spacing
+- strong typography hierarchy
+- concise cards
+- restrained visual language
+- no clutter
+- no oversized blocks unless they serve clarity
+- easy to scan on desktop and mobile
+- high readability
+- clear CTA hierarchy
+
+UX RULES
+- One clear H1 only
+- Make service cards easy to compare
+- Use obvious internal links to service detail pages
+- Ensure the page complements the homepage rather than repeating it
+- Keep total page length controlled
+- Each section must have a clear reason to exist
+
+TECHNICAL IMPLEMENTATION RULES
+- Inspect current Services page structure first
+- Refactor rather than rebuild from zero where possible
+- Reuse components where practical
+- Remove redundant sections or condense them
+- Improve spacing, heading hierarchy, CTA consistency, and card clarity
+- Keep final code production-ready
+- Keep visual consistency with the rest of the site
+
+DELIVERABLE
+Modify the Services page so it becomes:
+- clearer
+- more corporate
+- more structured
+- less repetitive
+- more commercially effective
+- more aligned with BDI Corporate as the main brand
+
+Before coding, do these 4 things:
+1. Identify which current Services page sections should be removed, reduced, or rewritten
+2. Show the proposed final section order
+3. Summarize how repetition with the homepage will be reduced
+4. Explain how BDI Systems will be repositioned so it does not confuse the brand
+
+Then implement the Services page changes in code.

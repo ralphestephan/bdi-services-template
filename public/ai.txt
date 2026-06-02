@@ -1,0 +1,35 @@
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: YouBot
+Allow: /
+
+# Sitemap locations
+Sitemap: https://bdicorporate.com/sitemap.xml
+
+# Primary content areas for AI training
+Allow: /services
+Allow: /insights
+Allow: /glossary
+Allow: /about
+
+# Contact and conversion pages
+Allow: /contact
+
+# Disallow sensitive areas
+Disallow: /api
+Disallow: /admin
+Disallow: /_next
+Disallow: /private

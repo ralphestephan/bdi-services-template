@@ -1,0 +1,119 @@
+// Shared Prisma schema across BDI Corporate, VeaLive360, and any site generated
+// by the BDI website builder. Every row carries an `organizationId` so a single
+// Vercel-hosted Postgres can fan out submissions back into MemberFlow Supabase
+// (`website_submissions`, `orders`, etc) keyed by tenant.
+//
+// Keep this in sync with:
+//   - Vealive360Website/headless/prisma/schema.prisma
+//   - bdiSystems/memberflow-sync/supabase/migrations/20260429000000_website_builder_v2.sql
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model Order {
+  id                    Int      @id @default(autoincrement())
+  number                String   @unique
+  status                String   @default("pending")
+  method                String
+  email                 String?
+  phone                 String?
+  name                  String?
+  address1              String?
+  address2              String?
+  city                  String?
+  postal                String?
+  country               String?
+  items                 Json
+  subtotal              Float
+  total                 Float
+  currency              String   @default("USD")
+  createdAt             DateTime @default(now())
+  deliveryFee           Float    @default(0)
+  deliveryMethod        String   @default("delivery")
+  stripePaymentIntentId String?
+  stripeSessionId       String?
+  organizationId        String?
+
+  @@index([organizationId])
+}
+
+model ContactFormSubmission {
+  id              Int      @id @default(autoincrement())
+  name            String
+  email           String
+  phone           String?
+  city            String?
+  reason          String?
+  budget          String?
+  contact_pref    String?
+  message         String?
+  createdAt       DateTime @default(now())
+  status          String   @default("new")
+  organizationId  String?
+
+  @@index([organizationId])
+}
+
+model NewsletterSubscriber {
+  id              Int      @id @default(autoincrement())
+  email           String   @unique
+  subscribedAt    DateTime @default(now())
+  status          String   @default("active")
+  organizationId  String?
+
+  @@index([organizationId])
+}
+
+model Booking {
+  id              Int      @id @default(autoincrement())
+  reference       String   @unique
+  status          String   @default("new")
+  serviceName     String?
+  serviceId       String?
+  startsAt        DateTime?
+  durationMinutes Int?
+  name            String?
+  email           String?
+  phone           String?
+  notes           String?
+  payload         Json?
+  createdAt       DateTime @default(now())
+  organizationId  String?
+
+  @@index([organizationId])
+}
+
+model Admin {
+  id            Int      @id @default(autoincrement())
+  email         String   @unique
+  name          String
+  role          String   @default("admin")
+  createdAt     DateTime @default(now())
+}
+
+// Per-tenant brand + routing config. The MemberFlow website-builder writes a
+// row here every time it deploys a generated site so the central submissions
+// API knows which brand to use for confirm/admin emails per organizationId.
+model Tenant {
+  organizationId String   @id
+  name           String
+  siteUrl        String
+  supportEmail   String
+  adminEmail     String
+  phone          String?
+  primaryColor   String?
+  accentColor    String?
+  logoUrl        String?
+  resendFrom     String?              // overrides default From: header
+  fromDomainVerified Boolean @default(false)
+  allowedOrigins String[] @default([])  // CORS allowlist; "*" = wildcard
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+}

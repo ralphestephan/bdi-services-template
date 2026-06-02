@@ -1,0 +1,220 @@
+Do not touch any page except the homepage unless needed for safe navigation consistency. Modify the homepage only, while keeping the existing routing, layout system, and design language intact.
+
+You are a senior B2B website strategist, UX copywriter, and front-end refactoring assistant.
+
+Your task is to modify ONLY the HOMEPAGE of the existing BDI Corporate website codebase and make it more professional, corporate, simple, short, direct, and conversion-focused.
+
+IMPORTANT
+- Do not redesign the entire website
+- Do not modify other pages unless required for homepage links or routing
+- Keep the existing tech stack, component system, and styling approach where possible
+- Reuse existing components if practical, but simplify the homepage structure and content
+- The homepage must become shorter and more direct
+- Remove duplications with other pages like About Us, Services, Contact Us, and the new Our Clients page
+- The homepage should act as a corporate entry page, not a full website inside one page
+
+COMPANY CONTEXT
+- Main brand: BDI Corporate
+- BDI Corporate is the company
+- BDI Systems is not the main homepage identity and should not dominate the homepage
+- Website objective: inform visitors quickly, build trust, and drive qualified inquiries
+- Target audience: business owners, CEOs, COOs, operations managers, finance teams, and companies looking for systems integration, BI dashboards, and workflow automation
+- Tone: corporate, confident, clean, simple, direct, credible
+- Avoid hype, clutter, startup-style fluff, and overly technical jargon in main sections
+
+PRIMARY GOAL FOR THE HOMEPAGE
+The homepage must do only these things:
+1. Clearly explain what BDI Corporate does
+2. Show the three main services briefly
+3. Build trust quickly
+4. Push visitors to Services, Our Clients, or Contact Us
+
+HOMEPAGE STRATEGY
+The homepage must be SHORT.
+Do not make it long-scrolling.
+Do not repeat information that belongs to internal pages.
+
+REMOVE OR REDUCE THESE FROM THE HOMEPAGE
+- Any section that makes the homepage too long
+- Repetitive service explanations already covered on Services pages
+- Large BDI Systems promotional/product sections
+- Fixed-scope package cards or pricing-style blocks
+- Detailed “how we work” timelines or long process sections
+- Full case study blocks
+- Long testimonials sections
+- Repetitive CTA sections
+- Illustrative/sample metrics in prominent areas
+- Any “Industries we serve”, “Our clients”, “Our partners”, logo wall, or sector listing section that will now move to the new Our Clients page
+- Any duplicated messaging already explained on About Us, Services, Our Clients, FAQ, or Contact pages
+
+KEEP THE HOMEPAGE LIMITED TO THESE 5 SECTIONS MAX
+
+SECTION 1 — HERO
+Purpose:
+Immediately explain what BDI Corporate does in one clear sentence.
+
+Use this copy direction:
+Headline:
+“BDI Corporate helps businesses connect systems, centralize reporting, and automate operations.”
+
+Supporting text:
+“We deliver practical business solutions that improve visibility, reduce manual work, and support better decisions.”
+
+Primary CTA:
+“Book a discovery call”
+
+Secondary CTA:
+“View services”
+
+Important:
+- Make BDI Corporate the homepage identity
+- Do not lead the hero with BDI Systems
+- Keep the hero visually clean and premium
+- Use concise copy only
+
+SECTION 2 — TRUST STRIP
+Purpose:
+Provide quick credibility without using large or vague statistic sections.
+
+Use 4 short trust points only:
+- Lebanon & UAE
+- Vendor-agnostic
+- Fixed-scope delivery
+- No vendor lock-in
+
+Design direction:
+- small horizontal strip or compact row
+- minimal icons if needed
+- clean and understated
+
+SECTION 3 — SERVICES SNAPSHOT
+Purpose:
+Show only the 3 core services with one short sentence each.
+
+Title:
+“Three core services”
+
+Card 1:
+“Systems Integration”
+“Connect your business tools into one structured operating environment.”
+
+Card 2:
+“Business Intelligence”
+“Turn your data into dashboards, KPIs, and clear executive reporting.”
+
+Card 3:
+“Automation”
+“Reduce manual tasks and improve execution with smarter workflows.”
+
+CTA below section:
+“Explore all services”
+
+Important:
+- Keep this section short
+- Do not add long paragraphs
+- Do not duplicate detailed service-page content
+
+SECTION 4 — WHY BDI CORPORATE
+Purpose:
+Provide a short business-value statement.
+
+Title:
+“Practical delivery. Clear outcomes.”
+
+Body copy:
+“We help companies improve how data, systems, and teams work together. Our focus is not complexity. It is clarity, efficiency, and business value.”
+
+Optional format:
+- short paragraph
+or
+- 3 to 4 small bullets/cards
+
+Suggested supporting points if needed:
+- Focused scope
+- Business-first approach
+- Usable solutions
+- Scalable structure
+
+Important:
+- keep this section compact
+- no long methodology breakdown
+- no repeated technical jargon
+
+SECTION 5 — FINAL CTA
+Purpose:
+Drive inquiry.
+
+Headline:
+“Ready to improve visibility and reduce operational friction?”
+
+Supporting text:
+“Let’s discuss the right starting point for your business.”
+
+Buttons:
+- “Contact us”
+- “Book a discovery call”
+
+Optional small text link:
+- “See who we work with”
+
+Important:
+- Keep one final CTA section only
+- Avoid stacking multiple CTA sections across the homepage
+
+DESIGN DIRECTION
+- Corporate and premium
+- Clean whitespace
+- Strong hierarchy
+- Minimal but polished
+- No clutter
+- No oversized blocks
+- No unnecessary visual noise
+- No excessive animations
+- Keep responsive behavior clean on mobile
+- High readability
+- Clear spacing between sections
+- Keep total homepage length controlled
+
+CONTENT AND UX RULES
+- One clear H1 only
+- Reduce jargon
+- Reduce repetition
+- Remove duplicated ideas from other pages
+- Every section must justify its presence
+- Shorter homepage is better than a dense homepage
+- Keep scanning easy for first-time visitors
+- Make CTA labels consistent
+- Make navigation from homepage clearly push to Services, Our Clients, and Contact Us
+
+IF EXISTING CONTENT MUST BE PRESERVED
+If the current codebase has content that must remain for structural reasons:
+- condense it
+- relocate it lower
+- simplify it
+- do not let it dominate the homepage
+
+TECHNICAL IMPLEMENTATION RULES
+- Inspect current homepage structure first
+- Refactor instead of rebuilding from scratch where possible
+- Keep existing routing intact
+- Preserve shared layout/header/footer behavior
+- Clean up spacing and redundant components
+- Remove or comment out unused homepage sections if appropriate
+- Ensure final code is production-ready and consistent with the current design system
+
+DELIVERABLE
+Modify the homepage code so that it becomes:
+- shorter
+- clearer
+- more corporate
+- more direct
+- less repetitive
+- more aligned with BDI Corporate as the main brand
+
+Before coding, do these 4 things:
+1. Identify which current homepage sections should be removed
+2. Show the proposed final homepage section order
+3. Explain how homepage duplication with Our Clients will be removed
+4. Summarize the content simplification approach
+
+Then implement the homepage changes in code.

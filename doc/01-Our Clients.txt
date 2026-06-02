@@ -1,0 +1,251 @@
+Do not touch other pages except where needed for safe navigation consistency. Create or refactor the new “Our Clients” page only, while keeping the existing routing, layout system, and design language intact.
+
+You are a senior B2B website strategist, corporate copywriter, information architect, and front-end refactoring assistant.
+
+Your task is to CREATE or REFACTOR a dedicated page called “Our Clients” for the existing BDI Corporate website codebase.
+
+OBJECTIVE
+Create a professional, corporate, trust-building page that shows who BDI Corporate works with, without cluttering the homepage.
+
+The page must:
+- build credibility
+- clarify the types of clients BDI Corporate serves
+- show commercial relevance
+- support trust and conversion
+- feel premium, structured, and corporate
+- avoid looking like a decorative logo page with no substance
+
+IMPORTANT
+- Main page name: “Our Clients”
+- Use “Our Clients” rather than “Our Partners”
+- Do not invent any client names, logos, case studies, or testimonials
+- If real client names/logos are not available or not approved, use anonymized client categories, business types, industries, and engagement profiles
+- Keep the page professional and honest
+- Avoid fake proof
+
+COMPANY CONTEXT
+- Main brand: BDI Corporate
+- BDI Corporate is the company
+- BDI Systems is a sub-offer / productized layer and should not dominate this page
+- Target audience: prospective business clients who want to see fit, relevance, and credibility
+- Tone: corporate, credible, clean, business-oriented, direct
+- Avoid startup-style hype, generic marketing fluff, and overly abstract wording
+
+PAGE STRATEGY
+The Our Clients page should answer:
+- What types of clients does BDI Corporate work with?
+- What kind of businesses are a fit?
+- What kinds of needs or challenges do these clients have?
+- Why is BDI Corporate relevant to them?
+
+RECOMMENDED PAGE STRUCTURE
+
+SECTION 1 — PAGE HERO
+Purpose:
+Introduce the page clearly and professionally.
+
+Suggested headline:
+“Who we work with”
+
+Suggested supporting text:
+“BDI Corporate supports businesses that need stronger system coordination, clearer reporting, and more efficient operations.”
+
+Optional CTA:
+- “Contact us”
+- “View services”
+
+Important:
+- Keep the hero concise
+- Do not make it a sales-heavy section
+- Focus on fit and credibility
+
+SECTION 2 — CLIENT TYPES / SEGMENTS
+Purpose:
+Show the main categories of clients served.
+
+Suggested title:
+“Our client profile”
+
+Suggested cards or blocks:
+- Multi-branch businesses
+- Operations-driven companies
+- Companies using disconnected systems
+- Leadership teams needing KPI visibility
+- Businesses improving ERP / CRM / POS / reporting workflows
+- Companies looking to reduce manual processes
+
+Important:
+- Use clear business language
+- Do not overload with too many categories
+- Keep strong visual hierarchy
+
+SECTION 3 — INDUSTRIES / BUSINESS CONTEXTS
+Purpose:
+Show sector relevance without making it feel like a shallow logo wall.
+
+Suggested title:
+“Business contexts we support”
+
+Suggested items if relevant:
+- Retail and distribution
+- Professional services
+- Hospitality and service operations
+- Multi-location businesses
+- SMEs scaling operations
+- Organizations improving management reporting and process visibility
+
+Important:
+- Only include categories that are credible and aligned with actual work
+- If specific industries are not certain, use broader business-context language
+- Avoid overclaiming
+
+SECTION 4 — COMMON CLIENT CHALLENGES
+Purpose:
+Make the page practical and relatable.
+
+Suggested title:
+“Common challenges our clients face”
+
+Suggested points:
+- Disconnected business tools
+- Manual reporting and spreadsheet dependency
+- Weak visibility across departments
+- Inconsistent KPI tracking
+- Slow internal processes
+- Lack of structure in operational data and workflows
+
+Important:
+- Keep this concise
+- Make it feel commercially useful
+- Do not turn this into a service-detail page
+
+SECTION 5 — HOW BDI ADDS VALUE
+Purpose:
+Bridge client type to business value.
+
+Suggested title:
+“How BDI Corporate supports clients”
+
+Suggested short copy:
+“We help clients improve the way systems, data, and operations work together. Our role is to bring structure, visibility, and practical implementation to areas that are slowing the business down.”
+
+Optional supporting bullets:
+- Better reporting visibility
+- More connected systems
+- Reduced manual work
+- More structured execution
+- Business-focused implementation
+
+Important:
+- Keep it concise
+- Avoid repeating full service descriptions
+
+SECTION 6 — OPTIONAL PROOF / REPRESENTATION BLOCK
+Purpose:
+Show credibility safely and honestly.
+
+Rules:
+- Do not invent logos or names
+- If approved real clients/logos exist, display them cleanly and professionally
+- If not, use anonymized examples such as:
+  - “Retail operations client”
+  - “Multi-location services business”
+  - “SME leadership reporting engagement”
+  - “Operations improvement project”
+- If current site has a home-page industry/client section, migrate and improve that content here
+
+Suggested title:
+“Representative client profiles”
+
+Important:
+- Keep presentation elegant and honest
+- No fake case studies
+- No invented testimonials
+
+SECTION 7 — FINAL CTA
+Purpose:
+Convert trust into inquiry.
+
+Suggested headline:
+“Looking for a practical partner for systems, reporting, or operational improvement?”
+
+Suggested text:
+“We can help define the right starting point based on your business structure and priorities.”
+
+Buttons:
+- “Contact us”
+- “View services”
+
+COPY DIRECTION
+Use copy that is:
+- direct
+- credible
+- simple
+- professional
+- business-oriented
+
+Avoid:
+- hype
+- vague inspiration language
+- overpromising
+- invented proof
+- long stacked paragraphs
+
+Preferred message style:
+- “We work with businesses that need better visibility, coordination, and execution.”
+- “Our clients typically need stronger system alignment and more reliable reporting.”
+- “We support practical improvement across systems, data, and operations.”
+
+DESIGN DIRECTION
+- clean and premium
+- corporate and restrained
+- elegant grid/card structure
+- no clutter
+- no giant logo wall unless real and approved
+- strong readability
+- mobile responsive
+- consistent with the existing design system
+
+NAVIGATION RULE
+Add “Our Clients” to the main navigation and footer page links.
+
+Preferred primary navigation:
+- Home
+- About Us
+- Services
+- Our Clients
+- Contact Us
+
+UX RULES
+- One clear H1 only
+- Keep page concise but trust-building
+- Build fit and credibility, not just decoration
+- Keep CTA hierarchy simple
+- Make the page complement Home and Services without duplicating them
+
+TECHNICAL IMPLEMENTATION RULES
+- Inspect the existing codebase first
+- Create or refactor the page using the current stack and component structure
+- Reuse components where practical
+- Preserve design consistency
+- Add routing and navigation safely if the page does not exist yet
+- Keep final code production-ready
+
+DELIVERABLE
+Create or refactor the Our Clients page so it becomes:
+- credible
+- clear
+- corporate
+- trust-building
+- commercially relevant
+- non-repetitive
+- aligned with the rest of the simplified site
+
+Before coding, do these 5 things:
+1. Confirm whether a page already exists or needs to be created
+2. Show the proposed final section order
+3. Explain what content will be moved from the homepage to this page
+4. Explain how proof will be handled without inventing client names/logos
+5. Confirm the navigation update to include Our Clients
+
+Then implement the page changes in code.

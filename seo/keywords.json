@@ -1,0 +1,85 @@
+{
+  "routes": {
+    "/": {
+      "primary": "business intelligence platform automation solutions digital transformation",
+      "secondary": [
+        "business intelligence platform", 
+        "automation solutions", 
+        "digital transformation", 
+        "it system integration", 
+        "ai for automation", 
+        "automation companies", 
+        "business analytics", 
+        "bi tools comparison", 
+        "intelligent automation", 
+        "enterprise automation", 
+        "industrial automation", 
+        "process automation", 
+        "workflow automation", 
+        "data analytics platform", 
+        "business transformation"
+      ],
+      "title": "Business Intelligence Platform & Automation Solutions | Digital Transformation | BDI Corporate",
+      "description": "Enterprise business intelligence platform with AI-powered automation solutions. Complete digital transformation services including systems integration, intelligent automation, and analytics for Middle East organizations."
+    },
+    "/services": {
+      "primary": "services systems integration",
+      "secondary": ["it system integration", "business transformation", "bi tools", "automation companies"],
+      "title": "Services: Integration, CRM, ERP, Financial Analysis & AI | BDI Corporate",
+      "description": "Complete suite of services: systems integration, CRM/POS implementation, ERP rollout, financial analysis & AI automation. Proven ROI in 90 days."
+    },
+    "/services/systems-integration": {
+      "primary": "systems integration",
+      "secondary": ["it system integration", "business intelligence platform", "bi tools", "automation"],
+      "title": "Systems Integration: ERP + CRM + POS, APIs & iPaaS | BDI Corporate",
+      "description": "Integrate ERP, CRM, POS with AI-driven automation and real-time KPIs. 4-12 week delivery. Book a discovery call for your integration project."
+    },
+    "/services/crm-pos": {
+      "primary": "crm pos implementation",
+      "secondary": ["business intelligence platform", "automation", "bi business intelligence"],
+      "title": "CRM & POS Implementations: HubSpot, Salesforce, Shopify | BDI Corporate",
+      "description": "Expert CRM & POS implementations with seamless integrations. HubSpot, Salesforce, Shopify POS. Proven ROI and faster sales cycles."
+    },
+    "/services/erp": {
+      "primary": "erp implementation",
+      "secondary": ["business transformation", "systems integration", "automation"],
+      "title": "ERP Selection & Rollout for SMEs in MENA | BDI Corporate",
+      "description": "ERP selection, implementation & integration for Middle East SMEs. Odoo, SAP B1 expertise. 6-month delivery with guaranteed ROI."
+    },
+    "/services/financial-analysis": {
+      "primary": "financial analysis business plans",
+      "secondary": ["business analytics", "bi business intelligence", "business intelligence platform"],
+      "title": "Financial Models & Investor-Ready Business Plans | BDI Corporate",
+      "description": "Professional financial models, FP&A dashboards, and investor-ready business plans. From assumptions to funding-ready documents."
+    },
+    "/services/ai-automation": {
+      "primary": "ai automation",
+      "secondary": ["ai in automation", "ai for automation", "automation", "industrial automation"],
+      "title": "AI Automation for Workflows: RPA & Agents | BDI Corporate",
+      "description": "AI-powered workflow automation, RPA, and intelligent agents. Reduce manual work by 80% with measurable ROI in 90 days."
+    },
+    "/insights": {
+      "primary": "business intelligence insights",
+      "secondary": ["business analytics", "digital transformation", "automation", "bi intelligence tools"],
+      "title": "Insights: Integration, ERP, CRM & AI Automation | BDI Corporate",
+      "description": "Expert insights on systems integration, ERP implementations, CRM optimization, and AI automation. Practical guides for MENA businesses."
+    }
+  },
+  "glossary_terms": [
+    "systems integration",
+    "business intelligence",
+    "erp implementation",
+    "crm integration",
+    "pos systems",
+    "api integration",
+    "data pipeline",
+    "workflow automation",
+    "business analytics",
+    "digital transformation",
+    "financial modeling",
+    "kpi dashboard",
+    "data warehouse",
+    "etl process",
+    "business process automation"
+  ]
+}

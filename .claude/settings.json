@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//c/Users/Hello/OneDrive - Université Saint-Esprit de Kaslik/Desktop/Projects/bdi/Saas/bdiSystems/memberflow-sync//**)",
+      "Bash(find '/c/Users/Hello/OneDrive - Université Saint-Esprit de Kaslik/Desktop/Projects/bdi/Saas/bdiSystems/memberflow-sync/supabase/functions' -type f -name *.ts -o -name *.js)",
+      "Bash(find '/c/Users/Hello/OneDrive - Université Saint-Esprit de Kaslik/Desktop/Projects/bdi/Saas/bdiSystems/memberflow-sync/supabase/migrations' -type f -name *.sql)",
+      "Read(//c/Users/Hello/OneDrive - Université Saint-Esprit de Kaslik/Desktop/Projects/bdi/Saas/bdiSystems/memberflow-sync/**)"
+    ]
+  }
+}

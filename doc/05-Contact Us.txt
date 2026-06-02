@@ -1,0 +1,281 @@
+Do not touch the homepage, about page, services page, or other pages except where needed for navigation consistency. Modify the Contact Us page only, while keeping the existing routing, layout system, and design language intact.
+
+You are a senior B2B website strategist, UX copywriter, conversion-focused web consultant, and front-end refactoring assistant.
+
+Your task is to modify ONLY the CONTACT US PAGE of the existing BDI Corporate website codebase.
+
+OBJECTIVE
+Make the Contact Us page more professional, corporate, simple, direct, and conversion-focused.
+
+The page must:
+- feel like a serious corporate contact page
+- make it easy for prospects to understand how to reach BDI Corporate
+- reduce clutter and repeated metrics
+- remove overlap with FAQ and other pages
+- support lead generation with a clean inquiry flow
+- reinforce BDI Corporate as a practical consulting and implementation partner
+
+IMPORTANT SCOPE
+- Modify ONLY the Contact Us page, except for navigation/menu consistency if required
+- Keep the existing tech stack, layout system, and styling approach where possible
+- Reuse current components if practical, but simplify the structure and improve the copy
+- Preserve current routing unless navigation cleanup requires minor safe updates
+- Keep the page concise and business-oriented
+
+NEW NAVIGATION RULE
+The main menu must remove:
+- Insights
+- FAQ
+
+Primary navigation should now be:
+- Home
+- About Us
+- Services
+- Contact Us
+
+Also remove Insights and FAQ from footer page links if they are currently listed there.
+
+COMPANY CONTEXT
+- Main brand: BDI Corporate
+- BDI Corporate is the company
+- BDI Systems is a sub-offer / productized layer and should not dominate this page
+- Target audience: business owners, CEOs, COOs, operations managers, finance teams, and organizations looking for systems integration, BI dashboards, automation, and business improvement support
+- Tone: direct, corporate, credible, practical, reassuring
+- Avoid startup-style hype, technical jargon overload, and unnecessary sales language
+
+STRATEGIC GOAL OF THE CONTACT PAGE
+The Contact page should do these things only:
+1. Make it easy to contact BDI Corporate
+2. Clarify what visitors can reach out about
+3. Build trust and reduce friction
+4. Encourage inquiry without too much noise
+5. Support a clean, professional conversion path
+
+WHAT TO REMOVE OR REDUCE
+Reduce or remove any content that creates clutter, repetition, or weak trust, especially:
+- repeated metric counters
+- repeated response time / sprint / integrations stats in multiple places
+- long FAQ teaser sections
+- FAQ blocks if FAQ is no longer in main navigation
+- duplicated CTA blocks
+- wording that sounds too promotional rather than corporate
+- content that repeats homepage/service-page messaging too much
+- anything that makes the page feel longer than necessary
+
+PAGE STRATEGY
+The Contact page should feel like a clean corporate contact and inquiry page.
+
+It should answer:
+- How can I contact BDI Corporate?
+- What can I contact them about?
+- What happens after I send a request?
+- Why should I feel comfortable reaching out?
+
+RECOMMENDED PAGE STRUCTURE
+
+SECTION 1 — PAGE HERO
+Purpose:
+Open with a clear, professional contact message.
+
+Suggested headline:
+“Contact BDI Corporate”
+
+Suggested supporting text:
+“Tell us what you need, and we’ll help define the right next step for your business.”
+
+Optional second line:
+“We support companies in Lebanon and the UAE with systems integration, reporting, and automation initiatives.”
+
+Primary CTA:
+- “Send an inquiry”
+
+Secondary CTA:
+- “WhatsApp us”
+
+Important:
+- Keep the hero concise
+- Remove aggressive sprint-selling language
+- Make it sound professional and approachable
+
+SECTION 2 — CONTACT METHODS
+Purpose:
+Show the main ways to reach BDI Corporate quickly.
+
+Include clearly:
+- WhatsApp
+- Email
+- Phone
+- Office locations
+- Business hours
+
+Suggested labels:
+- WhatsApp
+- Email
+- Phone
+- Offices
+- Business Hours
+
+Important:
+- Present these in clean cards or a compact structured grid
+- Prioritize readability
+- Keep copy simple and corporate
+
+SECTION 3 — CONTACT FORM
+Purpose:
+Make inquiry submission easy and credible.
+
+Suggested title:
+“Send us a message”
+
+Suggested supporting text:
+“Share a brief overview of your request and we’ll get back to you.”
+
+Suggested form fields:
+- Full Name
+- Company Name (if not already present, add it)
+- Email
+- Phone (optional)
+- Subject / Inquiry Type
+- Message
+
+Suggested inquiry type options:
+- New Project
+- Consultation Request
+- Technical Support
+- Partnership
+- General Inquiry
+
+Important:
+- Improve field labels and spacing
+- Keep the form clean and easy to scan
+- Add reassuring privacy language below the form
+- Avoid too much explanatory text
+
+Suggested privacy note:
+“We will only use your information to respond to your request.”
+
+SECTION 4 — WHAT HAPPENS NEXT
+Purpose:
+Reduce hesitation and set expectations.
+
+Suggested title:
+“What happens next”
+
+Suggested 3 short points:
+1. We review your request
+2. We contact you to clarify scope if needed
+3. We suggest the most relevant next step
+
+Suggested supporting line:
+“Our goal is to keep the first conversation focused, practical, and relevant to your business needs.”
+
+Important:
+- Keep this section short
+- No long process diagrams
+- No repeated methodology
+
+SECTION 5 — REASSURANCE / TRUST BLOCK
+Purpose:
+Support conversion with a calm trust message.
+
+Suggested title:
+“Practical, business-focused support”
+
+Suggested bullet points:
+- Clear communication
+- Business-oriented advice
+- Structured engagement
+- Lebanon and UAE coverage
+
+Alternative short paragraph:
+“We work with companies that need practical support around systems, reporting, and operational improvement. The first conversation is focused on understanding priorities and identifying the right starting point.”
+
+Important:
+- Keep this compact
+- No inflated claims
+- No repeated metrics
+
+SECTION 6 — FINAL CTA
+Purpose:
+End with one simple, clear prompt.
+
+Suggested headline:
+“Ready to discuss your business needs?”
+
+Suggested buttons:
+- “Contact us”
+- “WhatsApp us”
+
+Important:
+- Only one final CTA section
+- No repeated stacked CTA banners
+
+COPY DIRECTION
+Use copy that is:
+- concise
+- direct
+- credible
+- corporate
+- reassuring
+- practical
+
+Avoid:
+- hype
+- repetitive stats
+- overly salesy phrases
+- too much jargon
+- language that sounds like a startup landing page
+
+Preferred style examples:
+- “Tell us what you need, and we’ll help define the right next step.”
+- “Clear communication. Practical scope. Business-focused support.”
+- “We respond with the most relevant next step based on your request.”
+
+DESIGN DIRECTION
+- clean and premium
+- corporate and simple
+- compact layout
+- strong visual hierarchy
+- easy-to-read contact information
+- clear form structure
+- restrained use of icons
+- high readability on desktop and mobile
+- no unnecessary large sections
+
+UX RULES
+- One clear H1 only
+- Make contact options immediately visible
+- Keep form friction low
+- Remove FAQ dependency from this page
+- Keep total page length controlled
+- Make the page feel efficient and trustworthy
+
+TECHNICAL IMPLEMENTATION RULES
+- Inspect current Contact page structure first
+- Refactor rather than rebuild from zero where possible
+- Reuse existing components where practical
+- Remove redundant sections or condense them
+- Remove the FAQ teaser block if present
+- Remove duplicated metrics and repeated info where appropriate
+- Improve heading hierarchy, spacing, field clarity, and CTA consistency
+- Keep final code production-ready
+- Maintain consistency with the website design system
+
+DELIVERABLE
+Modify the Contact page so it becomes:
+- cleaner
+- shorter
+- more corporate
+- more direct
+- more trust-building
+- less repetitive
+- better aligned with the revised site navigation
+
+Before coding, do these 5 things:
+1. Identify which current Contact page sections should be removed, reduced, or rewritten
+2. Show the proposed final section order
+3. Explain how duplication and clutter will be reduced
+4. Explain how FAQ references will be removed from the Contact page
+5. Confirm navigation cleanup for header and footer links
+
+Then implement the Contact page changes in code.

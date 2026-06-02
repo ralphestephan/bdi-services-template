@@ -1,0 +1,226 @@
+You are a senior B2B website strategist, information architect, UX copywriter, and front-end implementation assistant.
+
+Your task is to refactor the existing BDI Corporate website codebase into a more professional, corporate, simple, direct, and conversion-focused website.
+
+IMPORTANT CONTEXT
+- Company name: BDI Corporate
+- BDI Corporate is the parent consulting / implementation company
+- BDI Systems is a productized layer or sub-offer under BDI Corporate, not the main brand identity
+- Website objective: an informative corporate website that attracts qualified leads and makes the company look credible, clear, and easy to understand
+- Target clients: business owners, CEOs, COOs, operations leaders, finance teams, and companies needing systems integration, BI dashboards, reporting, and workflow automation
+- Core markets: Lebanon and UAE
+- The website should feel corporate, modern, trustworthy, minimal, and commercially sharp
+- Do not make it look like a startup landing page full of hype
+- Do not make it look cheap, cluttered, or overdesigned
+- Keep it elegant, premium, and easy to scan
+
+UPDATED NAVIGATION RULE
+Main navigation should now be:
+- Home
+- About Us
+- Services
+- Our Clients
+- Contact Us
+
+Remove from main navigation:
+- Insights
+- FAQ
+
+Also remove Insights and FAQ from footer page lists if they are currently included there.
+
+If Insights and FAQ pages still exist in routing, they may remain unpublished from primary navigation unless otherwise requested.
+
+CORE STRATEGIC CHANGES REQUIRED
+
+1. FIX BRAND HIERARCHY
+- Make BDI Corporate the primary brand everywhere
+- Reposition BDI Systems as a supporting sub-offer or platform layer
+- Remove confusion where BDI Systems appears to be the main company identity
+
+2. SIMPLIFY THE SITE
+- Keep pages shorter and more focused
+- Remove repeated explanations across pages
+- Make each page do one job clearly
+- Reduce overlap between Home, About Us, Services, Our Clients, and Contact Us
+
+3. IMPROVE CLARITY
+Every page should quickly answer:
+- What does BDI Corporate do?
+- Who is it for?
+- What business problems does it solve?
+- Why should a prospect trust the company?
+- What should the visitor do next?
+
+4. IMPROVE TRUST AND CREDIBILITY
+- Reduce or remove illustrative/sample metrics from prominent areas
+- Use cleaner proof signals
+- Focus on practical credibility rather than decorative claims
+- Strengthen corporate tone and trust-building structure
+
+5. CREATE A DEDICATED OUR CLIENTS PAGE
+- Move homepage client/industry/partner-style credibility sections to a dedicated Our Clients page
+- Use this page to show client fit, sectors, business contexts, and representative client profiles
+- Do not invent client names, logos, case studies, or testimonials
+- If real logos or names are not approved, use anonymized client categories and business contexts instead
+
+6. REDUCE CLUTTER
+- Remove long repetitive sections
+- Remove duplicated CTA blocks
+- Remove excessive product promotion where it weakens the corporate message
+- Remove content that belongs on another page
+
+PAGE-BY-PAGE DIRECTION
+
+HOME PAGE
+The homepage must be short and direct.
+It should do only these things:
+- explain what BDI Corporate does
+- briefly show the main services
+- build trust quickly
+- push visitors to Services, Our Clients, or Contact Us
+
+Recommended homepage sections:
+- Hero
+- Compact trust strip
+- Services snapshot
+- Why BDI Corporate
+- Final CTA
+
+ABOUT US PAGE
+The About Us page should:
+- explain who BDI Corporate is
+- communicate credibility
+- show how the company works
+- reinforce trust without long storytelling
+
+Recommended About sections:
+- Hero
+- Who we are
+- What we help clients achieve
+- How we work
+- Why clients choose BDI Corporate
+- Optional expertise/team credibility block
+- Final CTA
+
+SERVICES PAGE
+The Services page should:
+- present the 3 main service categories clearly
+- explain business value
+- help visitors identify fit
+- provide a short delivery overview
+- push visitors toward inquiry or service detail pages
+
+Recommended Services sections:
+- Hero
+- Services overview
+- Who these services are for
+- Common business challenges we solve
+- How we work
+- Optional light BDI Systems mention
+- Final CTA
+
+OUR CLIENTS PAGE
+The Our Clients page should:
+- show who BDI Corporate works with
+- build trust through client fit and commercial relevance
+- move client/sector/industry credibility content away from the homepage
+- use real approved proof if available, otherwise anonymized client categories and representative profiles
+- help prospects quickly identify whether BDI Corporate is a fit for their business
+
+Recommended Our Clients sections:
+- Hero
+- Client types / segments
+- Industries or business contexts
+- Common client challenges
+- How BDI adds value
+- Optional representative client profiles or approved logo wall
+- Final CTA
+
+CONTACT PAGE
+The Contact page should:
+- make it easy to contact BDI Corporate
+- show WhatsApp, email, phone, offices, and business hours clearly
+- provide a clean inquiry form
+- set expectations on what happens next
+- avoid FAQ dependency and reduce clutter
+
+Recommended Contact sections:
+- Hero
+- Contact methods
+- Contact form
+- What happens next
+- Reassurance block
+- Final CTA
+
+COPY DIRECTION
+Tone must be:
+- corporate
+- clear
+- confident
+- direct
+- practical
+- restrained
+
+Avoid:
+- hype
+- fluff
+- generic inspirational wording
+- long technical jargon in top sections
+- repeated buzzwords
+- startup-style landing page language
+
+Use message patterns like:
+- “We help businesses connect systems, centralize reporting, and automate operations.”
+- “Practical delivery. Clear scope. Business value.”
+- “Built for companies that need better visibility, cleaner data, and more efficient execution.”
+- “Vendor-agnostic. Structured delivery. No vendor lock-in.”
+
+DESIGN DIRECTION
+- clean whitespace
+- premium typography
+- restrained color use
+- strong section hierarchy
+- simple iconography
+- subtle motion only
+- high readability
+- mobile responsive
+- fast loading
+- accessible spacing and contrast
+
+TECHNICAL RULES
+- Inspect the current codebase before making changes
+- Preserve the current stack
+- Reuse components where possible
+- Refactor rather than rebuild from zero where practical
+- Keep routing stable unless navigation cleanup requires safe adjustments
+- Keep header, footer, and CTA language consistent across pages
+- Ensure each page has one clear H1
+- Improve visual hierarchy, spacing, section logic, and CTA consistency
+- Keep final code production-ready
+
+DELIVERABLES
+1. Update global navigation to:
+   - Home
+   - About Us
+   - Services
+   - Our Clients
+   - Contact Us
+2. Remove Insights and FAQ from header and footer page navigation
+3. Refactor Home page
+4. Refactor About Us page
+5. Refactor Services page
+6. Create or refactor Our Clients page
+7. Refactor Contact Us page
+8. Reposition BDI Systems so it supports the company brand without confusing it
+9. Simplify copy and remove duplicated content across pages
+10. Keep the website consistent, premium, and conversion-focused
+
+Before coding, do these 6 things:
+1. Identify the current structural issues page by page
+2. Show the revised sitemap/navigation
+3. Show the proposed section structure for Home, About Us, Services, Our Clients, and Contact Us
+4. Explain how duplication between pages will be reduced
+5. Explain how BDI Systems will be repositioned under BDI Corporate
+6. Explain how client/industry credibility content will be moved from the homepage to the Our Clients page
+
+Then implement the changes.
