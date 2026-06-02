@@ -27,31 +27,34 @@ import {
   CheckCircle2,
   X,
 } from "lucide-react";
-const ACCENT = "#5EC6EA";
+import { useSiteBrand } from "@/lib/tenant-brand";
+import { telHref, whatsappHref } from "@/lib/site";
 
 /* ─── Pre-fill narratives keyed by ?from= param ──────────────────── */
-const NARRATIVES: Record<string, { subject: string; message: string }> = {
-  about: {
-    subject: "general",
-    message: "Hi, I visited your About Us page and would like to learn more about BDI Corporate — your team, approach, and how you work with businesses like ours.",
-  },
-  services: {
-    subject: "consultation",
-    message: "Hi, I'm interested in learning more about your services — systems integration, business intelligence, and automation. Could you help me understand which service fits my business needs?",
-  },
-  discovery: {
-    subject: "consultation",
-    message: "Hi, I'd like to book a discovery call to discuss how BDI Corporate can help improve our systems, reporting, or operations. Please let me know your availability.",
-  },
-  clients: {
-    subject: "general",
-    message: "Hi, I visited your Our Clients page and would like to know more about the types of businesses and SMEs you work with, and whether our company would be a good fit.",
-  },
-  "suggest-topic": {
-    subject: "general",
-    message: "Hi, I'd like to suggest a topic for your Insights section. Here's my idea: ",
-  },
-};
+function buildNarratives(brandName: string): Record<string, { subject: string; message: string }> {
+  return {
+    about: {
+      subject: "general",
+      message: `Hi, I visited your About Us page and would like to learn more about ${brandName} — your team, approach, and how you work with businesses like ours.`,
+    },
+    services: {
+      subject: "consultation",
+      message: "Hi, I'm interested in learning more about your services — systems integration, business intelligence, and automation. Could you help me understand which service fits my business needs?",
+    },
+    discovery: {
+      subject: "consultation",
+      message: `Hi, I'd like to book a discovery call to discuss how ${brandName} can help improve our systems, reporting, or operations. Please let me know your availability.`,
+    },
+    clients: {
+      subject: "general",
+      message: "Hi, I visited your Our Clients page and would like to know more about the types of businesses and SMEs you work with, and whether our company would be a good fit.",
+    },
+    "suggest-topic": {
+      subject: "general",
+      message: "Hi, I'd like to suggest a topic for your Insights section. Here's my idea: ",
+    },
+  };
+}
 
 const heroImages = [
   { src: "/consult2.jpeg", alt: "Business consultation" },
@@ -60,6 +63,18 @@ const heroImages = [
 ];
 
 export default function ContactClient() {
+  const brand = useSiteBrand();
+  const ACCENT = brand.accentColor || "#5EC6EA";
+  const brandName = brand.name;
+  const regionLabel = brand.regionLabel;
+  const phonePrimary = brand.phone;
+  const phoneSecondary = brand.phoneSecondary;
+  const supportEmail = brand.supportEmail;
+  const offices = brand.offices && brand.offices.length > 0 ? brand.offices : ["Beirut, Lebanon"];
+  const phoneDial = phonePrimary.replace(/[^\d+]/g, "");
+  const phonePlaceholder = phoneDial.startsWith("+") ? `${phoneDial.slice(0, 4)} …` : `${phoneDial.slice(0, 4)} …`;
+  const NARRATIVES = buildNarratives(brandName);
+
   const searchParams = useSearchParams();
   const fromParam = searchParams.get("from") || "";
 
@@ -127,7 +142,7 @@ export default function ContactClient() {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "x-bdi-source": "contact-page",
+          "x-contact-source": "contact-page",
         },
         body: JSON.stringify(formData),
       });
@@ -191,7 +206,7 @@ export default function ContactClient() {
 
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold leading-[1.05] tracking-tight">
                 Contact{" "}
-                <span style={{ color: ACCENT }}>BDI Corporate</span>
+                <span style={{ color: ACCENT }}>{brandName}</span>
               </h1>
 
               <p className="mt-4 max-w-[60ch] text-white/85 md:text-lg leading-relaxed">
@@ -199,7 +214,7 @@ export default function ContactClient() {
                 for your business.
               </p>
               <p className="mt-2 text-sm text-white/70">
-                We support companies in Lebanon and the UAE with systems
+                We support companies in {regionLabel} with systems
                 integration, reporting, and automation initiatives.
               </p>
 
@@ -224,7 +239,7 @@ export default function ContactClient() {
                 </a>
                 <Button asChild variant="outline" className="h-10 md:h-11 lg:h-12 px-4 md:px-5 lg:px-6 rounded-full bg-white/10 text-white hover:bg-white/15 border-white/30">
                   <a
-                    href="https://wa.me/9613599996?text=Hello%2C%20I%27d%20like%20to%20discuss%20a%20project."
+                    href={whatsappHref("Hello, I'd like to discuss a project.")}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -248,12 +263,12 @@ export default function ContactClient() {
               <div>
                 <div className="font-semibold text-sm">WhatsApp</div>
                 <a
-                  href="https://wa.me/9613599996"
+                  href={whatsappHref()}
                   className="text-sm text-muted-foreground hover:text-foreground transition-colors"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  +961 3 599 996
+                  {phonePrimary}
                 </a>
               </div>
             </div>
@@ -262,10 +277,10 @@ export default function ContactClient() {
               <div>
                 <div className="font-semibold text-sm">Email</div>
                 <a
-                  href="mailto:info@bdicorporate.com"
+                  href={`mailto:${supportEmail}`}
                   className="text-sm text-muted-foreground hover:text-foreground transition-colors"
                 >
-                  info@bdicorporate.com
+                  {supportEmail}
                 </a>
               </div>
             </div>
@@ -275,15 +290,17 @@ export default function ContactClient() {
                 <div className="font-semibold text-sm">Phone</div>
                 <div className="text-sm text-muted-foreground space-y-0.5">
                   <div>
-                    <a href="tel:+9613599996" className="hover:text-foreground transition-colors">
-                      +961 3 599 996
+                    <a href={telHref(phonePrimary)} className="hover:text-foreground transition-colors">
+                      {phonePrimary}
                     </a>
                   </div>
-                  <div>
-                    <a href="tel:+971529798517" className="hover:text-foreground transition-colors">
-                      +971 52 979 8517
-                    </a>
-                  </div>
+                  {phoneSecondary ? (
+                    <div>
+                      <a href={telHref(phoneSecondary)} className="hover:text-foreground transition-colors">
+                        {phoneSecondary}
+                      </a>
+                    </div>
+                  ) : null}
                 </div>
               </div>
             </div>
@@ -292,8 +309,9 @@ export default function ContactClient() {
               <div>
                 <div className="font-semibold text-sm">Offices</div>
                 <div className="text-sm text-muted-foreground">
-                  <div>Sin El Fil, Beirut</div>
-                  <div>Dubai Internet City</div>
+                  {offices.map((office) => (
+                    <div key={office}>{office}</div>
+                  ))}
                 </div>
               </div>
             </div>
@@ -379,7 +397,7 @@ export default function ContactClient() {
                           id="phone"
                           name="phone"
                           autoComplete="tel"
-                          placeholder="+961 …"
+                          placeholder={phonePlaceholder}
                           value={formData.phone}
                           onChange={handleChange}
                         />
@@ -504,7 +522,7 @@ export default function ContactClient() {
                     "Clear communication",
                     "Business-oriented advice",
                     "Structured engagement",
-                    "Lebanon and UAE coverage",
+                    `${regionLabel} coverage`,
                   ].map((item) => (
                     <li
                       key={item}
@@ -524,7 +542,7 @@ export default function ContactClient() {
               <div className="rounded-2xl border bg-white p-6">
                 <div className="grid grid-cols-2 gap-2">
                   <a
-                    href="https://wa.me/9613599996?text=Hello%2C%20I%27d%20like%20to%20discuss%20a%20project."
+                    href={whatsappHref("Hello, I'd like to discuss a project.")}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center justify-center gap-2 rounded-xl border px-3 py-2.5 bg-white hover:bg-muted transition text-sm font-medium"
@@ -533,7 +551,7 @@ export default function ContactClient() {
                     WhatsApp
                   </a>
                   <a
-                    href="mailto:info@bdicorporate.com"
+                    href={`mailto:${supportEmail}`}
                     className="inline-flex items-center justify-center gap-2 rounded-xl border px-3 py-2.5 bg-white hover:bg-muted transition text-sm font-medium"
                   >
                     <Mail className="h-4 w-4" />
@@ -573,7 +591,7 @@ export default function ContactClient() {
               <div className="flex flex-col gap-2 pt-2">
                 <Button asChild size="lg" className="w-full">
                   <a
-                    href="https://wa.me/9613599996?text=Hello%2C%20I%27d%20like%20to%20book%20a%20discovery%20call%20to%20discuss%20how%20BDI%20Corporate%20can%20help%20my%20business."
+                    href={whatsappHref(`Hello, I'd like to book a discovery call to discuss how ${brandName} can help my business.`)}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -590,7 +608,7 @@ export default function ContactClient() {
                     setFormData(prev => ({
                       ...prev,
                       subject: "consultation",
-                      message: "Hi, I'd like to book a discovery call to discuss how BDI Corporate can help improve our systems, reporting, or operations. Please let me know your availability.",
+                      message: `Hi, I'd like to book a discovery call to discuss how ${brandName} can help improve our systems, reporting, or operations. Please let me know your availability.`,
                     }));
                     setTimeout(() => {
                       document.getElementById("inquiry-form")?.scrollIntoView({ behavior: "smooth" });

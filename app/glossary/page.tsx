@@ -2,12 +2,13 @@ import { generateMetadata as createMetadata } from '@/lib/seo-metadata'
 import StructuredData from '@/components/StructuredData'
 import { BookOpen, Search } from 'lucide-react'
 import GlassyImplementationCTA from '@/components/GlassyImplementationCTA'
+import { SITE } from '@/lib/site'
 
-const BRAND = "#5EC6EA";
+const BRAND = SITE.colors.accent;
 
 export const metadata = createMetadata({
   path: '/glossary',
-  title: 'Business Intelligence & Systems Integration Glossary | BDI Corporate',
+  title: `Business Intelligence & Systems Integration Glossary | ${SITE.name}`,
   description: 'Comprehensive glossary of business intelligence, systems integration, ERP, CRM, and automation terms. Expert definitions for Middle East businesses.',
 })
 
@@ -98,7 +99,7 @@ const glossarySchema = {
     '@type': 'DefinedTerm',
     name: term.term,
     description: term.definition,
-    url: `https://bdicorporate.com/glossary/${term.slug}`
+    url: `${SITE.baseUrl}/glossary/${term.slug}`
   }))
 }
 

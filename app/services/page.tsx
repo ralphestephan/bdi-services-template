@@ -17,6 +17,7 @@ import { ACCENT, SERVICES, ALL_SLUGS } from "./_data";
 import ServiceHero from "./ServiceHero";
 import Reveal from "@/components/Reveal";
 import BdiSystemsSection from "@/components/BdiSystemsSection";
+import { SITE } from "@/lib/site";
 
 import { generateMetadata as createMetadata } from "@/lib/seo-metadata";
 
@@ -105,10 +106,10 @@ export default function ServicesPage() {
           serviceType: "Business Intelligence & Digital Transformation",
           provider: {
             "@type": "Organization",
-            name: "BDI Corporate",
-            url: "https://bdicorporate.com",
+            name: SITE.name,
+            url: SITE.baseUrl,
           },
-          areaServed: ["LB", "AE", "EMEA"],
+          areaServed: SITE.org.addressCountries,
         })}
       </Script>
 
@@ -117,7 +118,7 @@ export default function ServicesPage() {
           images={images}
           title="Services designed to improve visibility, efficiency, and execution."
           accentWords={["visibility", "efficiency", "execution"]}
-          summary="BDI Corporate helps businesses connect systems, centralize reporting, and automate operations through focused, practical delivery."
+          summary={`${SITE.name} helps businesses connect systems, centralize reporting, and automate operations through focused, practical delivery.`}
           accent={ACCENT}
           ctaPrimary={{ href: "/contact?from=services", label: "Contact Us" }}
           ctaSecondary={{ href: "/contact?from=discovery", label: "Book a discovery call" }}

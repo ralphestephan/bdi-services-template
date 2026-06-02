@@ -3,6 +3,16 @@ import Link from "next/link";
 import { CheckCircle2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
+// TODO(brand-extract): This component pitches a specific commercial product
+// ("BDI Systems" at systems.bdicorporate.com). Product name + URL + price
+// point are intentionally NOT extracted to env vars because they are not the
+// host brand — they are an unrelated SaaS offering this template's source
+// brand happens to upsell. Operators cloning this template should either:
+//   1) delete this component + its imports from app/services/page.tsx and
+//      app/services/[slug]/page.tsx, OR
+//   2) rewrite the copy + URL to point at their own platform offering.
+// Leaving as-is will ship BDI's upsell on a cloned tenant's site.
+//
 // Reusable "Powered by BDI Systems" section — shown on the services overview
 // and on every service detail page. Expands on what BDI Systems is and shows
 // real product screenshots from /public.

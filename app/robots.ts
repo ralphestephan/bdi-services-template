@@ -1,4 +1,5 @@
 import { MetadataRoute } from 'next'
+import { SITE } from '@/lib/site'
 
 export default function robots(): MetadataRoute.Robots {
   return {
@@ -37,10 +38,10 @@ export default function robots(): MetadataRoute.Robots {
         ],
       },
     ],
-    sitemap: 'https://bdicorporate.com/sitemap.xml',
-    host: 'https://bdicorporate.com',
+    sitemap: `${SITE.baseUrl}/sitemap.xml`,
+    host: SITE.baseUrl,
   }
 }
 
 // AI systems and crawlers can find comprehensive site information at:
-// https://bdicorporate.com/llms.txt
+// `${SITE.baseUrl}/llms.txt`

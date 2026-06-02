@@ -1,4 +1,13 @@
 // lib/insights.ts
+//
+// TODO(brand-extract): This file contains hundreds of lines of blog-style
+// editorial copy with embedded references to BDI Corporate (e.g. "BDI's
+// experience", "we built for a Beirut client"). The structural schema +
+// taxonomy is generic, but the body prose is brand-specific marketing copy.
+// Operators cloning the template MUST do an editorial pass before going live
+// — easiest path is to delete the existing entries and run the MemberFlow AI
+// editor to regenerate them in the new brand voice. Brand name / contact /
+// region literals are intentionally left in so they show up in audit greps.
 
 export type InsightSection = {
   id: string;

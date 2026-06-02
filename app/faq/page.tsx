@@ -19,22 +19,23 @@ import {
   Workflow,
   Gauge,
 } from "lucide-react";
+import { SITE, telHref, whatsappHref } from "@/lib/site";
 
 /* brand */
-const ACCENT = "#5EC6EA";
+const ACCENT = SITE.colors.accent;
 
 export const metadata: Metadata = {
-  title: "FAQs — Business Intelligence & Integration | BDI Corporate",
+  title: `FAQs — Business Intelligence & Integration | ${SITE.name}`,
   description:
     "Straight answers about BI dashboards, integrations, timelines, and support.",
   alternates: { canonical: "/faq" },
   openGraph: {
-    title: "FAQ — BDI Corporate",
+    title: `FAQ — ${SITE.name}`,
     description:
       "Answers about BI dashboards, ERP/CRM integration, timelines, and support.",
-    url: "https://bdicorporate.com/faq",
+    url: `${SITE.baseUrl}/faq`,
     type: "website",
-    images: [{ url: "/og/og-faq.jpg", width: 1200, height: 630, alt: "BDI FAQ" }],
+    images: [{ url: "/og/og-faq.jpg", width: 1200, height: 630, alt: `${SITE.name} FAQ` }],
   },
 };
 
@@ -236,12 +237,15 @@ const faq = [
     ]
   },
 
-  /* ======================== BDI SAAS PORTAL ======================== */
+  /* ======================== SAAS PORTAL ======================== */
   {
-    category: "BDI SaaS Portal",
+    // TODO(brand-extract): the "BDI portal" Q below references a specific
+    // commercial product. Operators cloning the template should rewrite this
+    // section to match their own platform offering or remove it entirely.
+    category: "SaaS Portal",
     questions: [
       {
-        question: "What is the BDI portal?",
+        question: "What is the portal?",
         answer:
           "A secure web portal that hosts your dashboards, alerts and simple tools—centralized for your teams."
       },
@@ -307,7 +311,7 @@ const faq = [
       {
         question: "How do we reach support?",
         answer:
-          "Email info@bdicorporate.com or call +961 76 809 741 (Mon–Fri, 9:00–18:00 local). SLAs available."
+          `Email ${SITE.contact.email} or call ${SITE.contact.phone} (Mon–Fri, 9:00–18:00 local). SLAs available.`
       },
       {
         question: "What counts as a bug vs. change request?",
@@ -466,14 +470,14 @@ export default function FAQPage() {
                     </p>
                     <div className="mt-3 grid grid-cols-2 gap-2">
                       <Button asChild variant="outline" className="w-full">
-                        <a href="mailto:info@bdicorporate.com">
+                        <a href={`mailto:${SITE.contact.email}`}>
                           <Mail className="mr-2 h-4 w-4" />
                           Email
                         </a>
                       </Button>
                       <Button asChild className="w-full">
                         <a
-                          href="https://wa.me/96176809741?text=Hi%20BDI%2C%20I%20have%20a%20question."
+                          href={whatsappHref(`Hi ${SITE.brand}, I have a question.`)}
                           target="_blank"
                           rel="noopener noreferrer"
                         >

@@ -1,5 +1,6 @@
 import { Metadata } from 'next'
 import keywords from '@/seo/keywords.json'
+import { SITE } from './site'
 
 interface SEOConfig {
   title?: string
@@ -13,27 +14,33 @@ interface SEOConfig {
 
 export function generateMetadata(config: SEOConfig): Metadata {
   const route = keywords.routes[config.path as keyof typeof keywords.routes]
-  
-  const title = config.title || route?.title || 'BDI Corporate - Business Intelligence & Systems Integration'
-  const description = config.description || route?.description || 'Leading provider of systems integration, business intelligence, and AI automation solutions in the Middle East.'
-  
+
+  const title =
+    config.title ||
+    route?.title ||
+    `${SITE.name} - ${SITE.tagline}`
+  const description =
+    config.description ||
+    route?.description ||
+    SITE.description
+
   const fullTitle = config.path === '/' ? title : title
-  
+
   return {
     title: fullTitle,
     description,
     keywords: config.keywords || route?.secondary || [],
     alternates: {
-      canonical: `https://bdicorporate.com${config.path}`,
+      canonical: `${SITE.baseUrl}${config.path}`,
     },
     openGraph: {
       title: fullTitle,
       description,
-      url: `https://bdicorporate.com${config.path}`,
-      siteName: 'BDI Corporate',
+      url: `${SITE.baseUrl}${config.path}`,
+      siteName: SITE.name,
       images: [
         {
-          url: config.image || '/og/og-home.jpg',
+          url: config.image || SITE.ogImage,
           width: 1200,
           height: 630,
           alt: title,
@@ -46,9 +53,9 @@ export function generateMetadata(config: SEOConfig): Metadata {
       card: 'summary_large_image',
       title: fullTitle,
       description,
-      images: [config.image || '/og/og-home.jpg'],
-      creator: '@bdicorporate',
-      site: '@bdicorporate',
+      images: [config.image || SITE.ogImage],
+      creator: SITE.socials.twitter,
+      site: SITE.socials.twitter,
     },
     robots: {
       index: !config.noIndex,
@@ -72,7 +79,7 @@ export function generateBreadcrumbSchema(items: { name: string; url: string }[])
       '@type': 'ListItem',
       position: index + 1,
       name: item.name,
-      item: `https://bdicorporate.com${item.url}`,
+      item: `${SITE.baseUrl}${item.url}`,
     })),
   }
 }
@@ -91,12 +98,12 @@ export function generateServiceSchema(
     serviceType,
     provider: {
       '@type': 'Organization',
-      name: 'BDI Corporate',
-      url: 'https://bdicorporate.com',
+      name: SITE.name,
+      url: SITE.baseUrl,
     },
-    areaServed: ['UAE', 'Lebanon', 'Iraq', 'KSA', 'Middle East'],
-    availableLanguage: ['English', 'Arabic'],
-    url: `https://bdicorporate.com${url}`,
+    areaServed: SITE.org.areasServed,
+    availableLanguage: SITE.org.languages,
+    url: `${SITE.baseUrl}${url}`,
   }
 }
 
@@ -119,34 +126,23 @@ export function generateOrganizationSchema() {
   return {
     '@context': 'https://schema.org',
     '@type': 'Organization',
-    name: 'BDI Corporate',
-    url: 'https://bdicorporate.com',
-    logo: 'https://bdicorporate.com/logo.png',
-    description: 'Leading provider of business intelligence, systems integration, and AI automation solutions in the Middle East.',
-    areaServed: ['UAE', 'Lebanon', 'Iraq', 'KSA', 'Middle East'],
-    address: [
-      {
-        '@type': 'PostalAddress',
-        addressCountry: 'AE',
-        addressLocality: 'Dubai',
-        addressRegion: 'Dubai',
-      },
-      {
-        '@type': 'PostalAddress',
-        addressCountry: 'LB',
-        addressLocality: 'Beirut',
-        addressRegion: 'Beirut',
-      },
-    ],
+    name: SITE.name,
+    url: SITE.baseUrl,
+    logo: `${SITE.baseUrl}${SITE.org.logo}`,
+    description: SITE.description,
+    areaServed: SITE.org.areasServed,
+    address: SITE.org.addresses.map((addr) => ({
+      '@type': 'PostalAddress',
+      addressCountry: addr.country,
+      addressLocality: addr.locality,
+      addressRegion: addr.locality,
+    })),
     contactPoint: {
       '@type': 'ContactPoint',
-      telephone: '+971-XXX-XXXX',
+      telephone: SITE.contact.phone,
       contactType: 'customer service',
-      availableLanguage: ['English', 'Arabic'],
+      availableLanguage: SITE.org.languages,
     },
-    sameAs: [
-      'https://www.linkedin.com/company/bdi-corporate',
-      'https://twitter.com/bdicorporate',
-    ],
+    sameAs: [...SITE.org.sameAs],
   }
 }

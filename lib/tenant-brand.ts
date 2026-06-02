@@ -24,13 +24,26 @@ export interface TenantBrand {
   description: string;
   siteUrl: string;
   supportEmail: string;
+  legalEmail: string;
   phone: string;
+  phoneSecondary: string;
+  whatsapp: string;
+  regionLabel: string;
+  legalJurisdiction: string;
+  foundingYear: string;
   primaryColor?: string;
   accentColor?: string;
   logoUrl?: string;
+  logoLightUrl?: string;
   ogImage?: string;
   twitter?: string;
   linkedin?: string;
+  twitterUrl?: string;
+  linkedinUrl?: string;
+  areasServed?: string[];
+  addresses?: ReadonlyArray<{ locality: string; country: string }>;
+  offices?: string[];
+  languages?: string[];
   organizationId?: string;
   enabledSections?: string[];
 }
@@ -42,11 +55,26 @@ const DEFAULT_BRAND: TenantBrand = {
   description: SITE.description,
   siteUrl: SITE.baseUrl,
   supportEmail: SITE.contact.email,
+  legalEmail: SITE.contact.legalEmail,
   phone: SITE.contact.phone,
+  phoneSecondary: SITE.contact.phoneSecondary,
+  whatsapp: SITE.contact.whatsapp,
+  regionLabel: SITE.contact.regionLabel,
+  legalJurisdiction: SITE.contact.legalJurisdiction,
+  foundingYear: SITE.foundingYear,
+  primaryColor: SITE.colors.primary,
+  accentColor: SITE.colors.accent,
   logoUrl: SITE.org.logo,
+  logoLightUrl: SITE.org.logoLight,
   ogImage: SITE.ogImage,
   twitter: SITE.socials.twitter,
   linkedin: SITE.socials.linkedin,
+  twitterUrl: SITE.socials.twitterUrl,
+  linkedinUrl: SITE.socials.linkedinUrl,
+  areasServed: [...SITE.org.areasServed],
+  addresses: SITE.org.addresses,
+  offices: [...SITE.org.offices],
+  languages: [...SITE.org.languages],
   organizationId: process.env.NEXT_PUBLIC_BDI_ORGANIZATION_ID || undefined,
 };
 
@@ -61,13 +89,25 @@ type BrandRow = {
   description?: string | null;
   site_url?: string | null;
   support_email?: string | null;
+  legal_email?: string | null;
   phone?: string | null;
+  phone_secondary?: string | null;
+  whatsapp?: string | null;
+  region_label?: string | null;
+  legal_jurisdiction?: string | null;
+  founding_year?: string | null;
   primary_color?: string | null;
   accent_color?: string | null;
   logo_url?: string | null;
+  logo_light_url?: string | null;
   og_image?: string | null;
   twitter?: string | null;
   linkedin?: string | null;
+  twitter_url?: string | null;
+  linkedin_url?: string | null;
+  areas_served?: string[] | null;
+  offices?: string[] | null;
+  languages?: string[] | null;
   enabled_sections?: string[] | null;
 };
 
@@ -80,13 +120,26 @@ function mergeBrand(row: BrandRow | null | undefined): TenantBrand {
     description: row.description || DEFAULT_BRAND.description,
     siteUrl: row.site_url || DEFAULT_BRAND.siteUrl,
     supportEmail: row.support_email || DEFAULT_BRAND.supportEmail,
+    legalEmail: row.legal_email || row.support_email || DEFAULT_BRAND.legalEmail,
     phone: row.phone || DEFAULT_BRAND.phone,
-    primaryColor: row.primary_color || undefined,
-    accentColor: row.accent_color || undefined,
+    phoneSecondary: row.phone_secondary || DEFAULT_BRAND.phoneSecondary,
+    whatsapp: row.whatsapp || DEFAULT_BRAND.whatsapp,
+    regionLabel: row.region_label || DEFAULT_BRAND.regionLabel,
+    legalJurisdiction: row.legal_jurisdiction || DEFAULT_BRAND.legalJurisdiction,
+    foundingYear: row.founding_year || DEFAULT_BRAND.foundingYear,
+    primaryColor: row.primary_color || DEFAULT_BRAND.primaryColor,
+    accentColor: row.accent_color || DEFAULT_BRAND.accentColor,
     logoUrl: row.logo_url || DEFAULT_BRAND.logoUrl,
+    logoLightUrl: row.logo_light_url || row.logo_url || DEFAULT_BRAND.logoLightUrl,
     ogImage: row.og_image || DEFAULT_BRAND.ogImage,
     twitter: row.twitter || DEFAULT_BRAND.twitter,
     linkedin: row.linkedin || DEFAULT_BRAND.linkedin,
+    twitterUrl: row.twitter_url || DEFAULT_BRAND.twitterUrl,
+    linkedinUrl: row.linkedin_url || DEFAULT_BRAND.linkedinUrl,
+    areasServed: row.areas_served || DEFAULT_BRAND.areasServed,
+    addresses: DEFAULT_BRAND.addresses,
+    offices: row.offices || DEFAULT_BRAND.offices,
+    languages: row.languages || DEFAULT_BRAND.languages,
     organizationId: ORG_ID || DEFAULT_BRAND.organizationId,
     enabledSections: row.enabled_sections || undefined,
   };

@@ -1,7 +1,8 @@
 import { MetadataRoute } from 'next'
+import { SITE } from '@/lib/site'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://bdicorporate.com'
+  const baseUrl = SITE.baseUrl
   const now = new Date()
   
   // Core pages with high priority

@@ -1,7 +1,8 @@
 import { Metadata } from "next";
+import { SITE } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Page Not Found | BDI Corporate",
+  title: `Page Not Found | ${SITE.name}`,
   robots: { index: false, follow: false },
 };
 

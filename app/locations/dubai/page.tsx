@@ -3,25 +3,27 @@ import Link from "next/link";
 import Image from "next/image";
 import GlassyImplementationCTA from "@/components/GlassyImplementationCTA";
 import { Phone, Mail, MapPin, ArrowRight, Building2, Users, TrendingUp, Zap } from "lucide-react";
+import { SITE } from "@/lib/site";
 
-const BRAND = "#5EC6EA";
+const BRAND = SITE.colors.accent;
+const PHONE_DUBAI = SITE.contact.phoneSecondary || SITE.contact.phone;
 
 export const metadata: Metadata = {
-  title: "Business Intelligence Solutions in Dubai | BDI Corporate UAE",
+  title: `Business Intelligence Solutions in Dubai | ${SITE.name} UAE`,
   description: "Leading business intelligence and digital transformation services in Dubai. Expert systems integration, AI analytics, and data-driven solutions for UAE businesses.",
   alternates: {
     canonical: "/locations/dubai",
   },
   openGraph: {
-    title: "Business Intelligence Solutions in Dubai | BDI Corporate UAE",
+    title: `Business Intelligence Solutions in Dubai | ${SITE.name} UAE`,
     description: "Transform your UAE business with cutting-edge BI solutions, AI analytics, and digital transformation services in Dubai.",
-    url: "https://bdicorporate.com/locations/dubai",
+    url: `${SITE.baseUrl}/locations/dubai`,
     images: [
       {
         url: "/dubai-business.jpg",
         width: 1200,
         height: 630,
-        alt: "BDI Corporate Dubai Office - Business Intelligence Solutions",
+        alt: `${SITE.name} Dubai Office - Business Intelligence Solutions`,
       },
     ],
   },
@@ -36,10 +38,10 @@ export default function DubaiPage() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "LocalBusiness",
-            "name": "BDI Corporate - Dubai Office",
+            "name": `${SITE.name} - Dubai Office`,
             "description": "Business intelligence and digital transformation services in Dubai, UAE",
-            "url": "https://bdicorporate.com/locations/dubai",
-            "telephone": "+971529798517",
+            "url": `${SITE.baseUrl}/locations/dubai`,
+            "telephone": PHONE_DUBAI,
             "address": {
               "@type": "PostalAddress",
               "addressLocality": "Dubai",
@@ -52,8 +54,8 @@ export default function DubaiPage() {
             "serviceType": ["Business Intelligence", "Digital Transformation", "Systems Integration", "AI Analytics"],
             "parentOrganization": {
               "@type": "Organization",
-              "name": "BDI Corporate",
-              "url": "https://bdicorporate.com"
+              "name": SITE.name,
+              "url": SITE.baseUrl
             }
           })
         }}
@@ -126,14 +128,14 @@ export default function DubaiPage() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-white/70">
                   <div className="flex items-center gap-3">
                     <Phone className="h-5 w-5" style={{ color: BRAND }} />
-                    <a href="tel:+971529798517" className="hover:text-white transition-colors">
-                      +971 52 979 8517
+                    <a href={`tel:${PHONE_DUBAI.replace(/[^\d+]/g, "")}`} className="hover:text-white transition-colors">
+                      {PHONE_DUBAI}
                     </a>
                   </div>
                   <div className="flex items-center gap-3">
                     <Mail className="h-5 w-5" style={{ color: BRAND }} />
-                    <a href="mailto:info@bdicorporate.com" className="hover:text-white transition-colors">
-                      info@bdicorporate.com
+                    <a href={`mailto:${SITE.contact.email}`} className="hover:text-white transition-colors">
+                      {SITE.contact.email}
                     </a>
                   </div>
                 </div>
@@ -219,13 +221,13 @@ export default function DubaiPage() {
           </div>
         </section>
 
-        {/* Why Choose BDI Section */}
+        {/* Why Choose Section */}
         <section className="py-16 lg:py-24 bg-gradient-to-br from-slate-50 to-blue-50/30">
           <div className="container mx-auto px-4">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div>
                 <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
-                  Why Choose <span style={{ color: BRAND }}>BDI</span> in UAE
+                  Why Choose <span style={{ color: BRAND }}>{SITE.brand}</span> in UAE
                 </h2>
                 <div className="space-y-6">
                   {[

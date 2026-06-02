@@ -7,11 +7,11 @@ import InsightsHero from "./InsightsHero";            // <-- local (client)
 import GlassyImplementationCTA from "@/components/GlassyImplementationCTA";
 
 export const metadata: Metadata = {
-  title: "Insights | BDI Corporate",
+  title: `Insights | ${SITE.name}`,
   description: "Deep dives and guides on BI, integration, and digital transformation.",
   alternates: { canonical: "/insights" },
   openGraph: {
-    title: "Insights | BDI Corporate",
+    title: `Insights | ${SITE.name}`,
     description: "Deep dives and guides on BI, integration, and digital transformation.",
     url: `${SITE.baseUrl}/insights`,
     type: "website",
@@ -27,7 +27,7 @@ export default function Page() {
         {JSON.stringify({
           "@context": "https://schema.org",
           "@type": "Blog",
-          name: "BDI Corporate Insights",
+          name: `${SITE.name} Insights`,
           url: `${SITE.baseUrl}/insights`,
           blogPost: insights.map((p) => ({
             "@type": "BlogPosting",

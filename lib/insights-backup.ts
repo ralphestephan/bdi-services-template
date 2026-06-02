@@ -1,4 +1,8 @@
-// lib/insights.ts
+// lib/insights-backup.ts
+//
+// TODO(brand-extract): Backup copy of `lib/insights.ts` — same editorial-pass
+// caveat applies; do not edit independently. Either delete this file if you
+// no longer need the rollback or regenerate alongside insights.ts.
 
 export type InsightSection = {
   id: string;
